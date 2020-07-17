@@ -1,7 +1,8 @@
 let game;
 const num=0
 
-function loop(50, off = 0) {
+function loop(unadjusted, off = 0) {
+  unadjusted=50
   get("number").textContent = "Your number is currently"+"game.num"
 }
 
