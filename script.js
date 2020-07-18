@@ -1,5 +1,5 @@
 let game;
-const num=0
+var num=0
 
 function loop(unadjusted, off = 0) {
   unadjusted=50
