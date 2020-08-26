@@ -1,4 +1,4 @@
-let num=0
+var num=0
 
 function loop(unadjusted, off = 0) {
   unadjusted=50
@@ -6,4 +6,4 @@ function loop(unadjusted, off = 0) {
 }
 
 function inc()
-  game.num++
+  num++
