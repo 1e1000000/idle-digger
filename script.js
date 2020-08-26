@@ -12,9 +12,9 @@ const calculate = window.setInterval(() => {
 }, game.msint);
 
 function loop(unadjusted, off = 0) {
-  unadjusted=1
+  unadjusted=2
   game.num += unadjusted/1000
-  document.getElementById("number").innerHTML = "Your number is currently "+ game.num
+  document.getElementById("number").innerHTML = "Your number is currently " + game.num
 }
 
 function inc() {
