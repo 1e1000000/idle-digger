@@ -1,8 +1,8 @@
-var num=0
+let num=0
 
 function loop(unadjusted, off = 0) {
   unadjusted=50
-  get("number").textContent = "Your number is currently"+ game.num
+  get("number").textContent = "Your number is currently "+ game.num
 }
 
 function inc()
