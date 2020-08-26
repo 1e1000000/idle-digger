@@ -8,5 +8,5 @@ function loop(unadjusted, off = 0) {
 }
 
 function inc() {
-  num++
+  game.num++
 }
