@@ -5,8 +5,8 @@ game = {
 
 let deltaTime;
 const calculate = window.setInterval(() => {
-  deltaTime = Date.now() - game.lastTick;
   game.lastTick = Date.now();
+  deltaTime = Date.now() - game.lastTick;
   loop(deltaTime)
 }, game.msint);
 
