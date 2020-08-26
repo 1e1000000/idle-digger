@@ -1,4 +1,6 @@
-var num=0
+var game = {
+  num: 0
+}
 
 function loop(unadjusted, off = 0) {
   unadjusted=50
