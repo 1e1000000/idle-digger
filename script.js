@@ -1,4 +1,4 @@
-var game = {
+game = {
   num: 0
 }
 
