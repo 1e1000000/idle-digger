@@ -13,7 +13,7 @@ const calculate = window.setInterval(() => {
 
 function loop(unadjusted, off = 0) {
   unadjusted=10
-  game.num++
+  game.num += unadjusted/1000
   document.getElementById("number").innerHTML = "Your number is currently "+ game.num
 }
 
