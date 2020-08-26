@@ -13,6 +13,7 @@ const calculate = window.setInterval(() => {
 
 function loop(unadjusted, off = 0) {
   unadjusted=50
+  game.num++
   document.getElementById("number").innerHTML = "Your number is currently "+ game.num
 }
 
