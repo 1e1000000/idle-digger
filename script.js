@@ -3,12 +3,11 @@ game = {
   lastTick: 0
 }
 
-game.lastTick = Date.now()
-
 let deltaTime;
 const calculate = window.setInterval(() => {
   deltaTime = Date.now() - game.lastTick;
   loop(deltaTime);
+  game.lastTick = Date.now()
 }, game.msint);
 
 function loop(unadjusted, off = 0) {
