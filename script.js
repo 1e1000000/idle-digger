@@ -1,6 +1,6 @@
 game = {
-  num: 0,
-  lastTick: 0
+  lastTick: 0,
+  num: 0
 }
 
 let deltaTime;
