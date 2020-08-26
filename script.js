@@ -12,7 +12,7 @@ const calculate = window.setInterval(() => {
 }, game.msint);
 
 function loop(unadjusted, off = 0) {
-  unadjusted=50
+  unadjusted=10
   game.num++
   document.getElementById("number").innerHTML = "Your number is currently "+ game.num
 }
