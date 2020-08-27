@@ -3,5 +3,5 @@ function damage() {
 }
 
 function getDepth() {
-  return new Decimal(10).pow(game.dealed.log10().sqrt()).floor().min(0)
+  return new Decimal(10).pow(game.dealed.log10().sqrt()).floor().max(0)
 }
