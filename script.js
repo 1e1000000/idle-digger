@@ -16,7 +16,7 @@ const calculate = window.setInterval(() => {
 function loop(unadjusted, off = 0) {
   game.dealed = (game.dealed).add(unadjusted/1000*0)
   document.getElementById("depth").innerHTML = "Your depth is currently " + game.depth.toFixed(0) + " meter"
-  document.getElementById("health").innerHTML = "Your health on this block is currently " + new Decimal(1).sub(game.dealed) + " meter"
+  document.getElementById("health").innerHTML = "Your health on this block is currently " + new Decimal(1).sub(game.dealed)
 }
 
 function click() {
