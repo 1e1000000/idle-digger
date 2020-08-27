@@ -1,5 +1,8 @@
 game = {
-  num: new Decimal(0),
+  depth: new Decimal(0),
+  coins: new Decimal(0),
+  cursor: new Decimal(0),
+  dealed: new Decimal(0),
   lastTick: Date.now()
 }
 
@@ -11,10 +14,10 @@ const calculate = window.setInterval(() => {
 }, 0);
 
 function loop(unadjusted, off = 0) {
-  game.num = (game.num).add(unadjusted/1000)
-  document.getElementById("number").innerHTML = "Your number is currently " + new Decimal(game.num).toFixed(3)
+  game.dealed = (game.dealed).add(unadjusted/1000*0)
+  document.getElementById("number").innerHTML = "Your number is currently " + new Decimal(game.dealed).toFixed(3)
 }
 
 function inc() {
-  game.num = (game.num).add(1)
+  game.dealed = (game.dealed).add(0.01)
 }
