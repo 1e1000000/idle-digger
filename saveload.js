@@ -1,6 +1,9 @@
 function reset() {
   game = {
-  num: new Decimal(0),
+  depth: new Decimal(0),
+  coins: new Decimal(0),
+  cursor: new Decimal(0),
+  dealed: new Decimal(0),
   lastTick: Date.now()
   }
 }
