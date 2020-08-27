@@ -18,7 +18,3 @@ function loop(unadjusted, off = 0) {
   document.getElementById("depth").innerHTML = "Your depth is currently " + game.depth.toFixed(0) + " meter"
   document.getElementById("health").innerHTML = "Your health on this block is currently " + new Decimal(1).sub(game.dealed).toFixed(2)
 }
-
-function click() {
-  game.dealed = game.dealed.add(0.01)
-}
