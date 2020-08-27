@@ -1,3 +1,3 @@
 function click() {
-  game.dealed = game.dealed.add(1)
+  // game.dealed = game.dealed.add(1)
 }
