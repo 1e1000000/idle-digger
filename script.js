@@ -1,3 +1,8 @@
+game = {
+  num: 0,
+  lastTick: Date.now()
+}
+
 let deltaTime;
 const calculate = window.setInterval(() => {
   deltaTime = Date.now() - game.lastTick;
