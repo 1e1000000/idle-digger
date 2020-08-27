@@ -12,7 +12,7 @@ const calculate = window.setInterval(() => {
 
 function loop(unadjusted, off = 0) {
   game.num = (game.num).add(unadjusted/1000)
-  document.getElementById("number").innerHTML = "Your number is currently " + (game.num).toFixed(3)
+  document.getElementById("number").innerHTML = "Your number is currently " + new Decimal(2).pow((game.num).pow(2))
 }
 
 function inc() {
