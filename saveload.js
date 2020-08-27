@@ -10,7 +10,7 @@ function save() {
 }
 
 function load() {
-  const loadgame = JSON.parse(localStorage.getItem("ordinalMarkupSave"));
+  const loadgame = JSON.parse(localStorage.getItem("inc"));
   if (loadgame !== null) {
     loadGame(loadgame);
   }
