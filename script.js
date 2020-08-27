@@ -1,3 +1,5 @@
+const Decimal = Decimal;
+
 game = {
   num: new Decimal(0),
   lastTick: Date.now()
