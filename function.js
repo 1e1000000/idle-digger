@@ -1,3 +1,3 @@
 function click() {
-  game.coin = (game.coin).add(0.01)
+  game.dealed = (game.dealed).add(0.01)
 }
