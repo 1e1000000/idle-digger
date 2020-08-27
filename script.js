@@ -1,5 +1,5 @@
 game = {
-  num: 0,
+  num: new Decimal(0),
   lastTick: Date.now()
 }
 
@@ -11,10 +11,10 @@ const calculate = window.setInterval(() => {
 }, 0);
 
 function loop(unadjusted, off = 0) {
-  game.num += unadjusted/1000
+  game.num = (game.num).add(unadjusted/1000)
   document.getElementById("number").innerHTML = "Your number is currently " + (game.num).toFixed(3)
 }
 
 function inc() {
-  game.num++
+  game.num = (game.num).add(1)
 }
