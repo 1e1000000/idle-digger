@@ -19,6 +19,6 @@ function loop(unadjusted, off = 0) {
   document.getElementById("health").innerHTML = "Your health on this block is currently " + new Decimal(1).sub(game.dealed) + " meter"
 }
 
-function inc() {
+function click() {
   game.dealed = (game.dealed).add(0.01)
 }
