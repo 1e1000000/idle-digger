@@ -1,13 +1,13 @@
 game = {
   num: 0,
-  lastTick: 0
+  lastTick: Date.now()
 }
 
 let deltaTime;
 const calculate = window.setInterval(() => {
-  game.lastTick = Date.now();
+  deltaTime = Date.now() - game.lastTick;
   loop(deltaTime);
-  deltaTime = Date.now() - game.lastTick
+  game.lastTick = Date.now()
 }, game.msint);
 
 function loop(unadjusted, off = 0) {
