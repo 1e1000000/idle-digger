@@ -1,6 +1,6 @@
 function reset() {
   game = {
-  num: 0,
+  num: new Decimal(0),
   lastTick: Date.now()
   }
 }
