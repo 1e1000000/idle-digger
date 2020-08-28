@@ -109,7 +109,11 @@ function reset() {
   game = {
     depth: new Decimal(0),
     coins: new Decimal(0),
-    cursor: new Decimal(0),
+    cursor: {
+      amount: new Decimal(1),
+      bought: new Decimal(0),
+      power: new Decimal(1)
+    },
     dealed: new Decimal(0),
     lastTick: Date.now(),
     mainTab: 1
