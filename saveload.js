@@ -61,7 +61,7 @@ function wipeSave() {
 }
 
 function exportSave() {
-  return btoa(JSON.stringify(game));
+  copyStringToClipboard(btoa(JSON.stringify(game)))
 }
 
 function importSave(text) {
