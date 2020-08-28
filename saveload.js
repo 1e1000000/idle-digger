@@ -99,7 +99,7 @@ function copyToClipboard(el) {
 }
 
 function importSave(text) {
-  savegame = JSON.parse(atob(text));
+  savegame = JSON.parse(atob(prompt("Paste in your save WARNING: WILL OVERWRITE YOUR CURRENT SAVE")));
   objectToDecimal(savegame);
   merge(game, savegame);
   save();
