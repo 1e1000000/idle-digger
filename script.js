@@ -6,6 +6,7 @@ game = {
   lastTick: Date.now()
 };
 load()
+Tab(1)
 
 let deltaTime;
 const calculate = window.setInterval(() => {
