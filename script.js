@@ -5,7 +5,7 @@ game = {
   dealed: new Decimal(0),
   lastTick: Date.now()
 };
-load()
+load();
 Tab(1)
 
 let deltaTime;
