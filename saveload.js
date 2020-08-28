@@ -20,7 +20,6 @@ function load() {
 }
 
 function loadGame(loadgame) {
-  reset();
   for (const i in loadgame) {
     game[i] = loadgame[i];
   }
