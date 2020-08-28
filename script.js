@@ -16,6 +16,8 @@ const calculate = window.setInterval(() => {
 function loop(unadjusted, off = 0) {
   game.dealed = (game.dealed).add(unadjusted/1000*0);
   game.depth = getDepth(game.dealed);
+  game.coin = (game.coin).add(getCoinPerSecond().div(1000).times(unadjusted))
   document.getElementById("depth").innerHTML = "Your depth is currently " + game.depth.toFixed(0) + " meter"
   document.getElementById("health").innerHTML = "Your health on this block is currently " + getHealth(game.depth).sub(game.dealed).toFixed(2)
+  document.getElementById("health").innerHTML = "You have " + game.coin.toFixed(2) + " coins"
 }
