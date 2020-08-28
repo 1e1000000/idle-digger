@@ -55,7 +55,7 @@ function load() {
 }
 
 function wipeSave() {
-  game = new Game()
+  reset()
   save()
   location.reload()
 }
@@ -69,4 +69,14 @@ function importSave(text) {
   objectToDecimal(savegame);
   merge(game, savegame);
   save();
+}
+
+function reset() {
+  game = {
+    depth: new Decimal(0),
+    coins: new Decimal(0),
+    cursor: new Decimal(0),
+    dealed: new Decimal(0),
+    lastTick: Date.now()
+  }
 }
