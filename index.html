@@ -1,13 +1,19 @@
 <!DOCTYPE html>
+<title>Idle Digger</title>
 <!-- import the webpage's javascript file -->
 <script src="break_eternity.js" defer></script>
 <script src="function.js" defer></script>
 <script src="saveload.js" defer></script>
 <script src="script.js" defer></script>
 <script src="format.js" defer></script>
+<script src="tab.js" defer></script>
 <!-- main page-->
 <h id="depth" style="font-size: 20pt;font-weight: bold;height:30px">Your depth is currently 0 meter</h>
 <p id="health">Your health on this block is currently 1.00/1.00</p>
 <p id="coins">You have 0.00 coins (+0.00/s)</p>
 <p></p>
-<button onclick="damage()" class="clickButton" id="click">Deal Damage by 0.01</button>
+<button onclick="damage()" class="damageButton" id="damage">Deal Damage by 0.01</button>
+<p></p>
+<button onclick="Tab(1)" class="tabButton" id="tab">Cursor</button>
+<button onclick="Tab(2)" class="tabButton" id="tab">Miner</button>
+<button onclick="Tab(3)" class="tabButton" id="tab">Option</button>
