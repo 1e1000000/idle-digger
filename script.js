@@ -17,7 +17,7 @@ function loop(unadjusted, off = 0) {
   game.dealed = (game.dealed).add(new Decimal(0).div(1000).times(unadjusted));
   game.depth = getDepth(game.dealed);
   game.coins = (game.coins).add(getCoinPerSecond().div(1000).times(unadjusted))
-  document.getElementById("depth").innerHTML = "Your depth is currently " + game.depth.toFixed(0) + " meter"
+  document.getElementById("depth").innerHTML = "Your depth is currently " + game.depth.floor() + " meter"
   document.getElementById("health").innerHTML = "Your health on this block is currently " + getHealth(game.depth).sub(game.dealed).toFixed(2) + "/" + getHealth(game.depth).sub(getHealth(game.depth.sub(1))).toFixed(2)
   document.getElementById("coins").innerHTML = "You have " + game.coins.toFixed(2) + " coins (+" + getCoinPerSecond().toFixed(2) + "/s)"
 }
