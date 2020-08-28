@@ -20,8 +20,9 @@ function load() {
 }
 
 function loadGame(loadgame) {
+  reset();
   for (const i in loadgame) {
     game[i] = loadgame[i];
   }
-  const diff = Date.now() - game.lastTick
+  loop(Date.now() - game.lastTick)
 }
