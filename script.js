@@ -1,3 +1,11 @@
+  game = {
+    depth: new Decimal(0),
+    coins: new Decimal(0),
+    cursor: new Decimal(0),
+    dealed: new Decimal(0),
+    lastTick: Date.now()
+  }
+
 let deltaTime;
 const calculate = window.setInterval(() => {
   deltaTime = Date.now() - game.lastTick;
