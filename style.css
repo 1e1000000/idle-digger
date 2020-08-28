@@ -1,0 +1,18 @@
+.tabButton {
+  font-family: open-sans;
+  color: #000000;
+  background: #FFFFFF;
+  border-radius: 5px;
+  border-color: #000000;
+  border-weight: 10px;
+  cursor: pointer;
+  transition-duration: 0.1s;
+  width: 60px;
+  height: 20px;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.tabButton:hover {
+  background: #DFDFDF
+}
