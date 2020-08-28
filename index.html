@@ -13,17 +13,19 @@
 <p id="health" style="font: open-sans">Your health on this block is currently 1.00/1.00</p>
 <p id="coins" style="font: open-sans">You have 0.00 coins (+0.00/s)</p>
 <p></p>
-<button onclick="damage()" class="damageButton" id="damage">Deal Damage by 0.01</button>
+<button onclick="damage()" class="normalButton" id="damage">Deal Damage by 0.01</button>
 <p></p>
 <button onclick="Tab(1)" class="tabButton" id="tab">Cursor</button>
 <button onclick="Tab(2)" class="tabButton" id="tab">Miner</button>
 <button onclick="Tab(3)" class="tabButton" id="tab">Option</button>
-    <div id="Tab1">
-      W
-    </div>
-    <div id="Tab2">
-      I
-    </div>
-    <div id="Tab3">
-      P
-    </div>
+  <div id="Tab1">
+    W
+  </div>
+  <div id="Tab2">
+    I
+  </div>
+  <div id="Tab3">
+    <button onclick="exportSave()" class="normalButton" style="border:2px solid #00FF00">Export your game save</button>
+    <button onclick="importSave()" class="normalButton" style="border:2px solid #0080FF">Import your game save</button>
+    <button onclick="reset()" class="normalButton" style="border:2px solid #0080FF">RESET YOUR GAME</button>
+  </div>
