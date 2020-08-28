@@ -64,6 +64,19 @@ function exportSave() {
   copyStringToClipboard(btoa(JSON.stringify(game)))
 }
 
+function copyStringToClipboard(str) {
+  var el = document.createElement("textarea");
+  el.value = str;
+  el.setAttribute("readonly", "");
+  el.style = {
+    position: "absolute",
+    left: "-99999px"
+  };
+  document.body.appendChild(el);
+  copyToClipboard(el);
+  document.body.removeChild(el);
+}
+
 function importSave(text) {
   savegame = JSON.parse(atob(text));
   objectToDecimal(savegame);
