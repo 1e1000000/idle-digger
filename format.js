@@ -5,15 +5,15 @@ function formate(ret, dp) {
     let iterateLayer = 0; // how much e will be show before first number
     let output = "";
     if ret.gte("eee1e6") {
-      ret = ret.log10()
+      ret = ret.log10();
       iterateLayer++
     };
     if ret.gte("ee1e6") {
-      ret = ret.log10()
+      ret = ret.log10();
       iterateLayer++
     };
     if ret.gte("e1e6") {
-      ret = ret.log10()
+      ret = ret.log10();
       iterateLayer++
     };
     let exponent = ret.log10().floor();
