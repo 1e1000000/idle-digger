@@ -10,3 +10,7 @@ function buyCursor() {
     game.cursor.bought = game.cursor.bought.add(1)
   }
 }
+
+function getCursorDamage() {
+  return game.cursor.amount.add(1).div(100)
+}
