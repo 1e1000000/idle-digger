@@ -110,7 +110,7 @@ function reset() {
     depth: new Decimal(0),
     coins: new Decimal(0),
     cursor: {
-      amount: new Decimal(1),
+      amount: new Decimal(0),
       bought: new Decimal(0),
       power: new Decimal(1)
     },
