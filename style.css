@@ -2,9 +2,9 @@
   font-family: sans-serif;
   color: #000000;
   background: #FFFFFF;
-  border-radius: 0px;
+  border-radius: 5px;
   border-color: #000000;
-  border-weight: 10px;
+  border-weight: 0px;
   cursor: pointer;
   transition-duration: 0.1s;
   width: 120px;
