@@ -14,9 +14,9 @@ function buyCursor() {
 function buyMaxCursor() {
   if (game.coins.gte(getCursorCost(game.cursor.bought))) {
     buyCursor()
-    if (game.coins.lt(getCursorCost(game.cursor.bought))) {
-      break;
-    }
+  }
+  if (game.coins.lt(getCursorCost(game.cursor.bought))) {
+    break
   }
 }
 
