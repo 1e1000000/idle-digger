@@ -11,10 +11,23 @@ function buyCursor() {
   }
 }
 
+function buyMaxCursor() {
+  if (game.coins.gte(getCursorCost(game.cursor.bought))) {
+    buyCursor()
+    if (game.coins.lt(getCursorCost(game.cursor.bought))) {
+      break;
+    }
+  }
+}
+
 function getCursorDamage() {
-  return game.cursor.amount.add(1).div(100)
+  return game.cursor.amount.mul(getCursorPower()).add(1).div(100)
 }
 
 function damage() {
   game.dealed = (game.dealed).add(getCursorDamage())
+}
+
+function getCursorPower() {
+  return new Decimal(2).pow(game.cursor.bought.div(25).floor())
 }
