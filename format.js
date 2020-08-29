@@ -4,6 +4,6 @@ function formate(ret, dp) {
   } else if (ret.lt("e1e6")) {
     let exponent = ret.log10().floor();
     let mantissa = ret.div(new Decimal(10).pow(exponent));
-    return mantissa.toFixed(dp) + "e" + exponent
+    return mantissa.toFixed(2) + "e" + exponent
   } else return ret.toString()
 }
