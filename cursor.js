@@ -12,7 +12,7 @@ function getMaxCursorBought() {
     totalCost = totalCost.add(getCursorCost(game.cursor.bought.add(i)))
     i = i.add(1)
   }
-  if (i.gte(100000)) return new Decimal(100000) // hardcap at 100k to prevent performance issue
+  if (i.gte(10000)) return new Decimal(10000) // hardcap at 10k to prevent performance issue
   return i
 }
 
@@ -34,7 +34,7 @@ function buyMultipleCursor(amount) { //amount: bulk
 
 function buyMaxCursor() {
   let i = new Decimal(0)
-  while (game.coins.gte(getCursorCost(game.cursor.bought)) && i.lt(100000)) {  // hardcap at 100k to prevent performance issue
+  while (game.coins.gte(getCursorCost(game.cursor.bought)) && i.lt(10000)) {  // hardcap at 10k to prevent performance issue
     buyCursor()
     i = i.add(1)
   }
