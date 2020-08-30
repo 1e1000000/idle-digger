@@ -5,11 +5,28 @@ function getCursorCost(amount) { // amount: currently cursor
   return new Decimal(20).mul(new Decimal(1.05).pow(amount.sub(10).pow(amount.log10().sqrt()).div(990)))
 }
 
+function getMaxCursorBought() {
+  let i = new Decimal(0)
+  let totalCost = new Decimal(0)
+  while (game.coins.sub(totalCost).gte(getCursorCost(game.cursor.bought.add(i)))) {
+    totalCost = totalCost.add(getCursorCost(game.cursor.bought.add(i)))
+    i = i.add(1)
+  }
+}
+
 function buyCursor() {
   if (game.coins.gte(getCursorCost(game.cursor.bought))) {
     game.coins = game.coins.sub(getCursorCost(game.cursor.bought))
     game.cursor.amount = game.cursor.amount.add(1)
     game.cursor.bought = game.cursor.bought.add(1)
+  }
+}
+
+function buyMultipleCursor(amount) { //amount: bulk
+  let i = new Decimal(0)
+  while (game.coins.gte(getCursorCost(game.cursor.bought)) && i.lt(amount)) {
+    buyCursor()
+    i = i.add(1)
   }
 }
 
