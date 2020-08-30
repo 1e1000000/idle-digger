@@ -1,5 +1,5 @@
  .tabButton {
-  font-family: sans-serif;
+  font-family: roboto;
   color: #000000;
   background: #FFFFFF;
   border-radius: 5px;
@@ -18,7 +18,7 @@
 }
 
 .boughtButton {
-  font-family: sans-serif;
+  font-family: roboto;
   color: #000000;
   background: #FFFFFF;
   border-radius: 0px;
@@ -33,7 +33,7 @@
 }
 
 .maxButton {
-  font-family: sans-serif;
+  font-family: roboto;
   color: #000000;
   background: #FFFFFF;
   border-radius: 0px;
