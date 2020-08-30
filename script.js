@@ -8,7 +8,8 @@ game = {
   },
   dealed: new Decimal(0),
   lastTick: Date.now(),
-  mainTab: 1
+  mainTab: 1,
+  maxBulk: 1
 };
 load();
 Tab(game.mainTab)
