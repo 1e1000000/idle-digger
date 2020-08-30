@@ -21,6 +21,6 @@ function toggleMaxBulk() {
 
 function fib(term) {
   let x = new Decimal(1).add(new Decimal(5).sqrt()).div(2) // (1+sqrt(5))/2
-  let y = new Decimal(1).div(x)
-  return x.pow(term).sub(y.pow(term.mul(-1))).div(new Decimal(5).sqrt())
+  let y = new Decimal(1).div(x).mul(-1)
+  return x.pow(term).sub(y.pow(term)).div(new Decimal(5).sqrt())
 }
