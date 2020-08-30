@@ -40,6 +40,10 @@ function buyMaxCursor() {
   }
 }
 
+function maxCursor() {
+  buyMultipleCursor(new Decimal(game.maxBulk))
+}
+
 function getCursorDamage() {
   return game.cursor.amount.mul(getCursorPower()).add(1).div(100)
 }
