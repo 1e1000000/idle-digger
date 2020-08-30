@@ -8,7 +8,8 @@ game = {
   },
   miner: {
     bought: [new Decimal(0)],
-    power: [new Decimal(1)] // first one is Miner 0
+    power: [new Decimal(1)],
+    req: [new Decimal(50)] // first one is Miner 0, require cursor amount
   },
   dealed: new Decimal(0),
   lastTick: Date.now(),
