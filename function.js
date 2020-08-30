@@ -18,3 +18,9 @@ function toggleMaxBulk() {
   if (ret >= 10000) ret = 10000
   game.maxBulk = Math.round(ret)
 }
+
+function fib(term) {
+  let x = new Decimal(1).add(new Decimal(5).sqrt()).div(2) // (1+sqrt(5))/2
+  let y = x.mul(-1)
+  return x.pow(term).sub(y.pow(term.mul(-1))).div(new Decimal(5).sqrt())
+}
