@@ -9,7 +9,7 @@ game = {
   dealed: new Decimal(0),
   lastTick: Date.now(),
   mainTab: 1,
-  maxBulk: 1
+  buyMode: 0
 };
 load();
 Tab(game.mainTab)
@@ -31,7 +31,6 @@ function loop(unadjusted, off = 0) {
   game.depth = getDepth(game.dealed);
   game.coins = (game.coins).add(getCoinPerSecond().div(1000).times(unadjusted));
   game.cursor.power = getCursorPower()
-  game.maxBulk = document.getElementById("maxBulk").value;
   //update texts
   document.getElementById("depth").innerHTML = "Your depth is currently " + formate(game.depth,0) + " meter"
   document.getElementById("health").innerHTML = "Your health on this block is currently " + formate(getHealth(game.depth).sub(game.dealed),2) + "/" + formate(getHealth(game.depth).sub(getHealth(game.depth.sub(1))),2)
