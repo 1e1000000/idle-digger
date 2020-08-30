@@ -6,6 +6,10 @@ game = {
     bought: new Decimal(0),
     power: new Decimal(1)
   },
+  miner: {
+    bought: [new Decimal(0)],
+    power: [new Decimal(1)] // first one is Miner 0
+  },
   dealed: new Decimal(0),
   lastTick: Date.now(),
   mainTab: 1,
