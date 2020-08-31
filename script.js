@@ -32,12 +32,14 @@ var autoSave = window.setInterval(function() {
 }, 10000)
 
 function loop(unadjusted, off = 0) {
-  //update variables
-  game.dealed = (game.dealed).add(new Decimal(0).div(1000).times(unadjusted));
+  // update variables
+  game.dealed = (game.dealed).add(getTotalMinerDamage().div(1000).times(unadjusted));
   game.depth = getDepth(game.dealed);
   game.coins = (game.coins).add(getCoinPerSecond().div(1000).times(unadjusted));
   game.cursor.power = getCursorPower()
-  //update texts
+  // update display
+  
+  // update texts
   document.getElementById("depth").innerHTML = "Your depth is currently " + formate(game.depth,0) + " meter"
   document.getElementById("health").innerHTML = "Your health on this block is currently " + formate(getHealth(game.depth).sub(game.dealed),2) + "/" + formate(getHealth(game.depth).sub(getHealth(game.depth.sub(1))),2) + " (total dealed: " + formate(game.dealed,2) + ")"
   document.getElementById("coins").innerHTML = "You have " + formate(game.coins,2) + " coins (+" + formate(getCoinPerSecond(),2) + "/s)"
