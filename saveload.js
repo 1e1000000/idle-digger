@@ -114,9 +114,15 @@ function reset() {
       bought: new Decimal(0),
       power: new Decimal(1)
     },
+    miner: {
+      bought: [new Decimal(0)],
+      power: [new Decimal(1)],
+      baseEff: [new Decimal(1)], // when you buy 1 Miner, the effect
+      req: [new Decimal(50)] // first one is Miner 0, require cursor amount
+    },
     dealed: new Decimal(0),
     lastTick: Date.now(),
     mainTab: 1,
     maxBulk: 1
-  }
+  };
 }
