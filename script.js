@@ -31,7 +31,7 @@ var autoSave = window.setInterval(function() {
   save()
 }, 10000)
 
-function loop(unadjusted, off = 0) {
+function loop(unadjusted, off = 0) { //the begin of gameloop
   // update variables
   game.dealed = (game.dealed).add(getTotalMinerDamage().div(1000).times(unadjusted));
   game.depth = getDepth(game.dealed);
@@ -40,9 +40,10 @@ function loop(unadjusted, off = 0) {
   // update display
   document.getElementById("coins").style.display = (game.depth.gte(1) ? "block" : "none")
   for (let i=0; i<1; i++) {
-    document.getElementById("minerBought" + i).style.display = (game.cursor.amount.gte(game.miner.req[i])? "block" : "none")
-    document.getElementById("maxMinerBought" + i).style.display = (game.cursor.amount.gte(game.miner.req[i])? "block" : "none")
+    document.getElementById("minerBought" + i).style.display = (game.cursor.amount.gte(game.miner.req[i]) ? "block" : "none")
+    document.getElementById("maxMinerBought" + i).style.display = (game.cursor.amount.gte(game.miner.req[i]) ? "block" : "none")
   }
+  document.getElementById("damagePerSecond").style.display = (getTotalMinerDamage().gt(0) ? "block" : "none")
   // update texts
   document.getElementById("depth").innerHTML = "Your depth is currently " + formate(game.depth,0) + " meter"
   document.getElementById("health").innerHTML = "Your health on this block is currently " + formate(getHealth(game.depth).sub(game.dealed),2) + "/" + formate(getHealth(game.depth).sub(getHealth(game.depth.sub(1))),2) + " (total dealed: " + formate(game.dealed,2) + ")"
@@ -58,4 +59,4 @@ function loop(unadjusted, off = 0) {
     document.getElementById("miner" + i + "Cost").innerHTML = "Cost: " + formate(getMinerCost(i, game.miner.bought[i]),2)
   }
   document.getElementById("damagePerSecond").innerHTML = "You are dealing " + formate(getTotalMinerDamage(),2) + " per second"
-}
+} //the end of gameloop
