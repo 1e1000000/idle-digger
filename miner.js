@@ -31,6 +31,6 @@ function buyMaxMiner(generation) {
   }
 }
 
-function maxCursor(generation) {
+function maxMiner(generation) {
   buyMultipleMiner(generation, new Decimal(game.maxBulk))
 }
