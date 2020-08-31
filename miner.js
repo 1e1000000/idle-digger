@@ -34,3 +34,11 @@ function buyMaxMiner(generation) {
 function maxMiner(generation) {
   buyMultipleMiner(generation, new Decimal(game.maxBulk))
 }
+
+function getTotalMinerDamage() {
+  let ret = new Decimal(0)
+  for (let i=0; i<1; i++) {
+    ret = ret.add(game.miner.bought[i].mul(game.miner.baseEff[i]))
+  }
+  return ret
+}
