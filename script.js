@@ -46,4 +46,9 @@ function loop(unadjusted, off = 0) {
   document.getElementById("cursorAmount").innerHTML = (game.cursor.bought.gte(1000)?(game.cursor.bought.gte(10000)?"Superscaled ":"Scaled "):"") + "Cursor: " + formate(game.cursor.amount,0) + " (" + formate(game.cursor.bought,0) + " Bought)"
   document.getElementById("cursorPower").innerHTML = "Power: " + formate(game.cursor.power,2) + "x"
   document.getElementById("cursorCost").innerHTML = "Cost: " + formate(getCursorCost(game.cursor.bought),2)
+  for (let i=0; i<1; i++) {
+    document.getElementById("miner" + i + "Amount").innerHTML = (game.miner.bought[i].gte(1000)?(game.miner.bought[i].gte(10000)?"Superscaled ":"Scaled "):"") + "Miner " + i + ": " + formate(game.miner.bought[i],0)
+    document.getElementById("miner" + i + "Power").innerHTML = "Power: 1.00x"
+    document.getElementById("miner" + i + "Cost").innerHTML = "Cost: " + formate(getMinerCost(i, game.miner.bought[i]),2)
+  }
 }
