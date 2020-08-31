@@ -37,6 +37,9 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   game.depth = getDepth(game.dealed);
   game.coins = (game.coins).add(getCoinPerSecond().div(1000).times(unadjusted));
   game.cursor.power = getCursorPower()
+  for (let i=0; i<1; i++) {
+    game.miner.power[i] = getMinerPower(i)
+  }
   // update display
   document.getElementById("coins").style.display = (game.depth.gte(1) ? "block" : "none")
   for (let i=0; i<1; i++) {
@@ -55,7 +58,7 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   document.getElementById("cursorCost").innerHTML = "Cost: " + formate(getCursorCost(game.cursor.bought),2)
   for (let i=0; i<1; i++) {
     document.getElementById("miner" + i + "Amount").innerHTML = (game.miner.bought[i].gte(1000)?(game.miner.bought[i].gte(10000)?"Superscaled ":"Scaled "):"") + "Miner " + i + ": " + formate(game.miner.bought[i],0)
-    document.getElementById("miner" + i + "Power").innerHTML = "Power: 1.00x"
+    document.getElementById("miner" + i + "Power").innerHTML = "Power: "+ formate(game.miner.power[i],2) +"x"
     document.getElementById("miner" + i + "Cost").innerHTML = "Cost: " + formate(getMinerCost(i, game.miner.bought[i]),2)
   }
   document.getElementById("damagePerSecond").innerHTML = "You are dealing " + formate(getTotalMinerDamage(),2) + " per second"
