@@ -57,4 +57,5 @@ function loop(unadjusted, off = 0) {
     document.getElementById("miner" + i + "Power").innerHTML = "Power: 1.00x"
     document.getElementById("miner" + i + "Cost").innerHTML = "Cost: " + formate(getMinerCost(i, game.miner.bought[i]),2)
   }
+  document.getElementById("damagePerSecond").innerHTML = "You are dealing " + getTotalMinerDamage() + " per second"
 }
