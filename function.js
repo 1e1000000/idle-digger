@@ -30,11 +30,3 @@ function fibDecimal(term) { // fibonacci sequence, but with Decimal
   let y = new Decimal(-1).div(x) // (1-sqrt(5))/2
   return x.pow(term).sub(y.pow(term)).div(new Decimal(5).sqrt())
 }
-
-function getTotalMinerDamage() {
-  let ret = new Decimal(0)
-  for (let i=0; i<1; i++) {
-    ret = ret.add(game.miner.bought[i].mul(game.miner.baseEff[i]))
-  }
-  return ret
-}
