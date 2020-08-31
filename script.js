@@ -42,6 +42,7 @@ function loop(unadjusted, off = 0) {
   document.getElementById("coins").innerHTML = "You have " + formate(game.coins,2) + " coins (+" + formate(getCoinPerSecond(),2) + "/s)"
   document.getElementById("damage").innerHTML = "Deal Damage by " + formate(getCursorDamage(),2)
   document.getElementById("maxBulk").innerHTML = "Max Bulk buy: " + game.maxBulk
+  document.getElementById("maxCursorBulkAmount").innerHTML = "(+0)"
   document.getElementById("cursorAmount").innerHTML = (game.cursor.bought.gte(1000)?(game.cursor.bought.gte(10000)?"Superscaled ":"Scaled "):"") + "Cursor: " + formate(game.cursor.amount,0) + " (" + formate(game.cursor.bought,0) + " Bought)"
   document.getElementById("cursorPower").innerHTML = "Power: " + formate(game.cursor.power,2) + "x"
   document.getElementById("cursorCost").innerHTML = "Cost: " + formate(getCursorCost(game.cursor.bought),2)
