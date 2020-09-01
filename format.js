@@ -19,9 +19,24 @@ function formate(ret, dp) {
 }
 
 function formateNum(ret, dp) {
-  let exponent = ret.log10().floor();
-  let mantissa = ret.div(new Decimal(10).pow(exponent));
-  return mantissa.toFixed(dp) + "e" + exponent
+  let exponent = ret.log10().floor().toNumber();
+  let mantissa = ret.div(new Decimal(10).pow(exponent)).toNumber();
+  let standardPreE33 = ["K", "M", "B", "T", "Qa", "Qt", "Sx", "Sp", "Oc", "No"]
+  let standardUnits = ["", "U", "D", "T", "Qa", "Qt", "Sx", "Sp", "O", "N"]
+  let standardTens = ["", "Dc", "Vg", "Tg", "Qd", "Qi", "Se", "St", "Og", "Nn"]
+  let standardHundreds = ["", "Ce", "Dn", "Tc", "Qe", "Qu", "Sc", "Si", "Oe", "Ne"]
+  if (ret.gte(new Decimal(10).pow(3 * 10 ** game.notation + 3))) {
+    return mantissa.toFixed(dp) + "e" + exponent
+  } else {
+    let mod = exponent % 3
+    exponent = (exponent - mod) / 3 - 1
+    mantissa = mantissa * 10 ** mod
+    if (ret.lt(new Decimal(1e33))) {
+      return mantissa.toFixed(dp) + " " + standardPreE33[exponent]
+    } else {
+      return mantissa.toFixed(dp) + " " + standardUnits[exponent % 10] + standardTens[Math.floor(exponent / 10) % 10] + standardHundreds[Math.floor(exponent / 100)]
+    }
+  }
 }
 
 function toggleNotation() {
