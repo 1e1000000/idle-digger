@@ -23,3 +23,7 @@ function formateNum(ret, dp) {
   let mantissa = ret.div(new Decimal(10).pow(exponent));
   return mantissa.toFixed(dp) + "e" + exponent
 }
+
+function toggleNotation() {
+  game.notation = (game.notation + 1) % 4
+}
