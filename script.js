@@ -16,7 +16,7 @@ game = {
   dealed: new Decimal(0),
   lastTick: Date.now(),
   mainTab: 1,
-  maxBulk: 1
+  maxBulk: 1000
 };
 load();
 Tab(game.mainTab)
