@@ -50,6 +50,7 @@ function getCursorDamage() {
 
 function damage() {
   game.dealed = (game.dealed).add(getCursorDamage())
+  game.clickCoolDown = 80
 }
 
 function getCursorPower() {
