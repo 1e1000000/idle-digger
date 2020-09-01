@@ -49,7 +49,7 @@ function getCursorDamage() {
 }
 
 function damage() {
-  if (game.clickDown <= 0) {
+  if (game.clickDown <= 0.01) {
     game.dealed = (game.dealed).add(getCursorDamage())
     game.clickCoolDown = 80
   }
