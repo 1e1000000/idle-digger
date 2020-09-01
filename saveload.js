@@ -114,6 +114,7 @@ function reset() {
       bought: new Decimal(0),
       power: new Decimal(1)
     },
+    clickCoolDown: 0,
     miner: {
       bought: [new Decimal(0)],
       power: [new Decimal(1)],
