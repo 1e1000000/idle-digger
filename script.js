@@ -40,9 +40,6 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   if (game.clickCoolDown > 0){
     game.clickCoolDown -= unadjusted
   };
-  if (game.clickCoolDown < 0){
-    game.clickCoolDown = 0
-  };
   game.cursor.power = getCursorPower()
   for (let i=0; i<1; i++) {
     game.miner.power[i] = getMinerPower(i)
