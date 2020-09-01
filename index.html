@@ -24,15 +24,22 @@
 <button onclick="toggleMaxBulk()" class="normalButton" id="maxBulk" style="font-family: roboto">Max Bulk buy: 1</button>
 <p></p>
   <div id="Tab1">
-    <p></p>
-    <button onclick="buyCursor()" class="boughtButton" id="cursorBought">
-      <p id="cursorAmount">Cursor: 0 (0 Bought)</p>
-      <p id="cursorPower">Power: 1.00x</p>
-      <p id="cursorCost">Cost: 10.00</p>
-    </button>
-    <button onclick="maxCursor()" class="maxButton" id="maxCursorBought" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;">
-      Max Cursor
-    </button>
+    <table>
+      <tr>
+        <td>
+          <button onclick="buyCursor()" class="boughtButton" id="cursorBought">
+            <p id="cursorAmount">Cursor: 0 (0 Bought)</p>
+            <p id="cursorPower">Power: 1.00x</p>
+            <p id="cursorCost">Cost: 10.00</p>
+          </button>
+        </td>
+        <td>
+          <button onclick="maxCursor()" class="maxButton" id="maxCursorBought" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;">
+            Max Cursor
+          </button>
+        </td>
+      </tr>
+    </table>
   </div>
   <div id="Tab2">
     <p></p>
