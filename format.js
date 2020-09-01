@@ -1,21 +1,24 @@
-function formate(ret, dp) {
+function formate(x, dp) {
+  let output = ""
+  let ret = x.abs()
   if (ret.lt(1e6)) {
-    return ret.toFixed(dp)
+    output = ret.toFixed(dp)
   } else if (ret.lt("e1e6")) {
-    return formateNum(ret, 2)
+    output = formateNum(ret, 2)
   } else if (ret.lt("ee1e6")) {
     ret = ret.log10()
-    return "e" + formateNum(ret, 3)
+    output = "e" + formateNum(ret, 3)
   } else if (ret.lt("eee1e6")) {
     ret = ret.log10().log10()
-    return "ee" + formateNum(ret, 3)
+    output = "ee" + formateNum(ret, 3)
   } else if (ret.lt("eeee1e6")) {
     ret = ret.log10().log10().log10()
-    return "eee" + formateNum(ret, 3)
+    output = "eee" + formateNum(ret, 3)
   } else if (ret.lt("eeeee1e6")) {
     ret = ret.log10().log10().log10().log10()
-    return "eeee" + formateNum(ret, 3)
-  } else return ret.toString()
+    output = "eeee" + formateNum(ret, 3)
+  } else output = ret.toString()
+  return (x.lt(0) ? "-" : "") + output
 }
 
 function formateNum(ret, dp) {
