@@ -6,7 +6,7 @@ game = {
     bought: new Decimal(0),
     power: new Decimal(1),
   },
-  clickCoolDown: 0,
+  clickCoolDown: 0, // millisecond
   miner: {
     bought: [new Decimal(0)],
     power: [new Decimal(1)],
@@ -37,6 +37,12 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   game.dealed = (game.dealed).add(getTotalMinerDamage().div(1000).times(unadjusted));
   game.depth = getDepth(game.dealed);
   game.coins = (game.coins).add(getCoinPerSecond().div(1000).times(unadjusted));
+  if (game.clickCoolDown > 0){
+    game.clickCoolDown -= unadjusted
+  };
+  if (game.clickCoolDown < 0){
+    game.clickCoolDown = 0
+  };
   game.cursor.power = getCursorPower()
   for (let i=0; i<1; i++) {
     game.miner.power[i] = getMinerPower(i)
