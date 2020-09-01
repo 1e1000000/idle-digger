@@ -37,6 +37,7 @@ var autoSave = window.setInterval(function() {
 function loop(unadjusted, off = 0) { //the begin of gameloop
   // update variables
   game.dealed = (game.dealed).add(getTotalMinerDamage().div(1000).times(unadjusted));
+  if (game.dealed.lt(0)) game.dealed = new Decimal(0)
   game.depth = getDepth(game.dealed);
   game.coins = (game.coins).add(getCoinPerSecond().div(1000).times(unadjusted));
   if (game.clickCoolDown > 0){
