@@ -46,13 +46,3 @@ function getTotalMinerDamage() {
 function getMinerPower(generation) {
   return new Decimal(2).pow(game.miner.bought[generation].div(25).floor())
 }
-
-function getNextMinerReq() {
-  let ret = 0;
-  for (let i=0; i<4; i++) {
-    if (game.cursor.amount[0].gte(game.miner.req[i])) {
-      ret++
-    }
-  }
-  return game.miner.req[ret]
-}
