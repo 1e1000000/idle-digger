@@ -49,8 +49,10 @@ function getMinerPower(generation) {
 
 function getNextMinerReq() {
   let ret = 0;
-  while (game.cursor.amount[0].gte(game.miner.req[ret])) {
-    ret++
-  };
+  for (let i=0; i<4; i++) {
+    if (game.cursor.amount[0].gte(game.miner.req[i])) {
+      ret++
+    }
+  }
   return game.miner.req[ret]
 }
