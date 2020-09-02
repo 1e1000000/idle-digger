@@ -1,51 +1,51 @@
-function getCursorCost(amount) { // amount: currently cursor
+function getCursorCost(generation,amount) { // amount: currently cursor
   if (amount.lt(10)) return new Decimal(10).add(amount)
   if (amount.lt(1000)) return new Decimal(20).mul(new Decimal(1.05).pow(amount.sub(10)))
   if (amount.lt(10000)) return new Decimal(20).mul(new Decimal(1.05).pow(amount.sub(10).pow(2).div(990)))
   return new Decimal(20).mul(new Decimal(1.05).pow(amount.sub(10).pow(amount.log10().sqrt()).div(990)))
 }
 
-function getMaxCursorBought() {
+function getMaxCursorBought(generation) {
   let i = new Decimal(0)
   let totalCost = new Decimal(0)
-  while (game.coins.sub(totalCost).gte(getCursorCost(game.cursor.bought.add(i)))) {
-    totalCost = totalCost.add(getCursorCost(game.cursor.bought.add(i)))
+  while (game.coins.sub(totalCost).gte(getCursorCost(game.cursor.bought[generation].add(i)))) {
+    totalCost = totalCost.add(getCursorCost(game.cursor.bought[generation].add(i)))
     i = i.add(1)
   }
   if (i.gte(10000)) return new Decimal(10000) // hardcap at 10k to prevent performance issue
   return i
 }
 
-function buyCursor() {
-  if (game.coins.gte(getCursorCost(game.cursor.bought))) {
-    game.coins = game.coins.sub(getCursorCost(game.cursor.bought))
-    game.cursor.amount = game.cursor.amount.add(1)
-    game.cursor.bought = game.cursor.bought.add(1)
+function buyCursor(generation) {
+  if (game.coins.gte(getCursorCost(game.cursor.bought[generation]))) {
+    game.coins = game.coins.sub(getCursorCost(game.cursor.bought[generation]))
+    game.cursor.amount[generation] = game.cursor.amount[generation].add(1)
+    game.cursor.bought[generation] = game.cursor.bought[generation].add(1)
   }
 }
 
-function buyMultipleCursor(amount) { //amount: bulk
+function buyMultipleCursor(generation,amount) { //amount: bulk
   let i = new Decimal(0)
-  while (game.coins.gte(getCursorCost(game.cursor.bought)) && i.lt(amount)) {
-    buyCursor()
+  while (game.coins.gte(getCursorCost(game.cursor.bought[generation])) && i.lt(amount)) {
+    buyCursor(generation)
     i = i.add(1)
   }
 }
 
-function buyMaxCursor() {
+function buyMaxCursor(generation) {
   let i = new Decimal(0)
-  while (game.coins.gte(getCursorCost(game.cursor.bought)) && i.lt(10000)) {  // hardcap at 10k to prevent performance issue
-    buyCursor()
+  while (game.coins.gte(getCursorCost(game.cursor.bought[generation])) && i.lt(10000)) {  // hardcap at 10k to prevent performance issue
+    buyCursor(generation)
     i = i.add(1)
   }
 }
 
-function maxCursor() {
-  buyMultipleCursor(new Decimal(game.maxBulk))
+function maxCursor(generation) {
+  buyMultipleCursor(generation,new Decimal(game.maxBulk))
 }
 
 function getCursorDamage() {
-  return game.cursor.amount.mul(getCursorPower()).add(1).div(100)
+  return game.cursor.amount[0].mul(getCursorPower()).add(1).div(100)
 }
 
 function damage() {
