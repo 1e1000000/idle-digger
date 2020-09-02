@@ -63,7 +63,7 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   for (let i=0; i<1; i++) {
     document.getElementById("cursor" + i + "Amount").innerHTML = (game.cursor.bought[i].gte(1000)?(game.cursor.bought[i].gte(10000)?"Superscaled ":"Scaled "):"") + "Cursor: " + formate(game.cursor.amount[i],0) + " (" + formate(game.cursor.bought[i],0) + " Bought)"
     document.getElementById("cursor" + i + "Power").innerHTML = "Power: " + formate(game.cursor.power[i],2) + "x"
-    document.getElementById("cursor" + i + "Cost").innerHTML = "Cost: " + formate(getCursorCost(game.cursor.bought[i]),2)
+    document.getElementById("cursor" + i + "Cost").innerHTML = "Cost: " + formate(getCursorCost(i, game.cursor.bought[i]),2)
   }
   for (let i=0; i<1; i++) {
     document.getElementById("miner" + i + "Amount").innerHTML = (game.miner.bought[i].gte(1000)?(game.miner.bought[i].gte(10000)?"Superscaled ":"Scaled "):"") + "Miner " + i + ": " + formate(game.miner.bought[i],0)
