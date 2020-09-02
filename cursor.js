@@ -55,6 +55,6 @@ function damage() {
   }
 }
 
-function getCursorPower() {
-  return new Decimal(2).pow(game.cursor.bought.div(50).floor())
+function getCursorPower(generation) {
+  return new Decimal(2).pow(game.cursor.bought[generation].div(50).floor())
 }
