@@ -43,8 +43,8 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   if (game.clickCoolDown > 0){
     game.clickCoolDown -= unadjusted
   };
-  game.cursor.power = getCursorPower()
   for (let i=0; i<1; i++) {
+    game.cursor.power[i] = getCursorPower(i)
     game.miner.power[i] = getMinerPower(i)
   }
   // update display
