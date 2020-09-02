@@ -52,7 +52,7 @@ function load() {
     objectToDecimal(savegame);
     merge(game, savegame);
   };
-  if (game.version<0) {
+  if (game.version<=0) {
     game.miner.req = [new Decimal(50),new Decimal(150),new Decimal(1.79e308),new Decimal(1.79e308)]
   }
 }
