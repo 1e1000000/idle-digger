@@ -119,7 +119,7 @@ function reset() {
       bought: [new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0)],
       power: [new Decimal(1),new Decimal(1),new Decimal(1),new Decimal(1)],
       baseEff: [new Decimal(0.1),new Decimal(0),new Decimal(0),new Decimal(0)], // when you buy 1 Miner, the effect
-      req: [new Decimal(50),new Decimal(150),new Decimal(0),new Decimal(0)] // first one is Miner 0, require cursor amount
+      req: [new Decimal(50),new Decimal(150),new Decimal(Infinity),new Decimal(Infinity)] // first one is Miner 0, require cursor amount
     },
     dealed: new Decimal(0),
     lastTick: Date.now(),
