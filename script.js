@@ -2,7 +2,7 @@ game = {
   depth: new Decimal(0),
   coins: new Decimal(0),
   cursor: {
-    amount: [new Decimal(0)],
+    amount: [new Decimal(0)], // first one is x^0, second is derivative x^1, etc.
     bought: [new Decimal(0)],
     power: [new Decimal(1)],
   },
