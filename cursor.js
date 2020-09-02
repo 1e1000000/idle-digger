@@ -45,7 +45,7 @@ function maxCursor(generation) {
 }
 
 function getCursorDamage() {
-  return game.cursor.amount[0].mul(getCursorPower()).add(1).div(100)
+  return game.cursor.amount[0].mul(getCursorPower(0)).add(1).div(100)
 }
 
 function damage() {
