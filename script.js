@@ -18,7 +18,8 @@ game = {
   mainTab: 1,
   // option
   maxBulk: 1000,
-  notation: 0
+  notation: 0,
+  version: 0
 };
 load();
 Tab(game.mainTab)
