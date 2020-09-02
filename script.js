@@ -1,7 +1,7 @@
 // due to test, 23 lines are removed
 game = {}
 load();
-Tab(game.mainTab)
+// Tab(game.mainTab)
 
 let deltaTime;
 const calculate = window.setInterval(() => {
