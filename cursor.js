@@ -17,8 +17,8 @@ function getMaxCursorBought(generation) {
 }
 
 function buyCursor(generation) {
-  if (game.coins.gte(getCursorCost(game.cursor.bought[generation]))) {
-    game.coins = game.coins.sub(getCursorCost(game.cursor.bought[generation]))
+  if (game.coins.gte(getCursorCost(generation, game.cursor.bought[generation]))) {
+    game.coins = game.coins.sub(getCursorCost(generation, game.cursor.bought[generation]))
     game.cursor.amount[generation] = game.cursor.amount[generation].add(1)
     game.cursor.bought[generation] = game.cursor.bought[generation].add(1)
   }
