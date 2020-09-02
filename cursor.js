@@ -26,7 +26,7 @@ function buyCursor(generation) {
 
 function buyMultipleCursor(generation,amount) { //amount: bulk
   let i = new Decimal(0)
-  while (game.coins.gte(getCursorCost(game.cursor.bought[generation])) && i.lt(amount)) {
+  while (game.coins.gte(getCursorCost(generation, game.cursor.bought[generation])) && i.lt(amount)) {
     buyCursor(generation)
     i = i.add(1)
   }
