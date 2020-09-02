@@ -50,8 +50,8 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   // update display
   document.getElementById("coins").style.display = (game.depth.gte(1) ? "block" : "none")
   for (let i=0; i<1; i++) {
-    document.getElementById("minerBought" + i).style.display = (game.cursor.amount.gte(game.miner.req[i]) ? "block" : "none")
-    document.getElementById("maxMinerBought" + i).style.display = (game.cursor.amount.gte(game.miner.req[i]) ? "block" : "none")
+    document.getElementById("minerBought" + i).style.display = (game.cursor.amount[0].gte(game.miner.req[i]) ? "block" : "none")
+    document.getElementById("maxMinerBought" + i).style.display = (game.cursor.amount[0].gte(game.miner.req[i]) ? "block" : "none")
   }
   document.getElementById("damagePerSecond").style.display = (getTotalMinerDamage().gt(0) ? "block" : "none")
   // update texts
