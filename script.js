@@ -11,7 +11,7 @@ game = {
     bought: [new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0)],
     power: [new Decimal(1),new Decimal(1),new Decimal(1),new Decimal(1)],
     baseEff: [new Decimal(0.1),new Decimal(0),new Decimal(0),new Decimal(0)], // when you buy 1 Miner, the effect
-    req: [new Decimal(50),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity)] // first one is Miner 0, require cursor amount
+    req: [new Decimal(50),new Decimal(150),new Decimal(Infinity),new Decimal(Infinity)] // first one is Miner 0, require cursor amount
   },
   dealed: new Decimal(0),
   lastTick: Date.now(),
@@ -74,5 +74,5 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   }
   document.getElementById("damagePerSecond").innerHTML = "You are dealing " + formate(getTotalMinerDamage(),2) + " per second"
   document.getElementById("notation").innerHTML = "Notation: " + (game.notation == 0 ? "Scientific " : "Standard I" + (game.notation >= 2 ? (game.notation >= 3 ? "II " : "I ") : " ")) + "(Scientific Notation start at 1e" + (3 * 10 ** game.notation + 3) + ")"
-  document.getElementById("nextMinerReq").innerHTML = "Get " + formate(game.cursor.amount[0].lt(50) ? new Decimal(50) : new Decimal(Infinity)) + " Cursors to Unlock new Miner"
+  document.getElementById("nextMinerReq").innerHTML = "Get " + formate(game.cursor.amount[0].lt(50) ? new Decimal(50) : (game.cursor.amount[0].lt(150) ? new Decimal(150) : new Decimal(Infinity))) + " Cursors to Unlock new Miner"
 } //the end of gameloop
