@@ -119,7 +119,6 @@ function reset() { // now value
     clickCoolDown: 0, // millisecond
     miner: {
       bought: [new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0)],
-      baseEff: [new Decimal(0.1),new Decimal(0),new Decimal(0),new Decimal(0)], // when you buy 1 Miner, the effect
     },
     dealed: new Decimal(0),
     lastTick: Date.now(),
