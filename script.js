@@ -50,12 +50,15 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
     document.getElementById("minerBought" + i).style.display = (game.cursor.amount[0].gte(minerReq[i]) ? "block" : "none")
     document.getElementById("maxMinerBought" + i).style.display = (game.cursor.amount[0].gte(minerReq[i]) ? "block" : "none")
   }
+  document.getElementById("tab2").style.display = (game.cursor.amount[0].gte(50) ? "block" : "none")
+  document.getElementById("tab3").style.display = (game.cursor.amount[0].gte(200) ? "block" : "none")
   document.getElementById("damagePerSecond").style.display = (getTotalMinerDamage().gt(0) ? "block" : "none")
   // update texts
   document.getElementById("depth").innerHTML = "Your depth is currently " + formate(game.depth,0) + " meter"
   document.getElementById("health").innerHTML = "Your health on this block is currently " + formate(getHealth(game.depth).sub(game.dealed),2) + "/" + formate(getHealth(game.depth).sub(getHealth(game.depth.sub(1))),2) + " (total dealed: " + formate(game.dealed,2) + ")"
   document.getElementById("coins").innerHTML = "You have " + formate(game.coins,2) + " coins (+" + formate(getCoinPerSecond(),2) + "/s)"
   document.getElementById("damage").innerHTML = "Deal Damage by " + formate(getCursorDamage(),2)
+  document.getElementById("damagePerSecond").innerHTML = "You are dealing " + formate(getTotalMinerDamage(),2) + " per second"
   document.getElementById("maxBulk").innerHTML = "Max Bulk buy: " + game.maxBulk
   for (let i=0; i<1; i++) {
     document.getElementById("cursor" + i + "Amount").innerHTML = (game.cursor.bought[i].gte(1000)?(game.cursor.bought[i].gte(10000)?"Superscaled ":"Scaled "):"") + "Cursor: " + formate(game.cursor.amount[i],0) + " (" + formate(game.cursor.bought[i],0) + " Bought)"
@@ -67,7 +70,6 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
     document.getElementById("miner" + i + "Power").innerHTML = "Power: "+ formate(getMinerPower(i),2) +"x"
     document.getElementById("miner" + i + "Cost").innerHTML = "Cost: " + formate(getMinerCost(i, game.miner.bought[i]),2)
   }
-  document.getElementById("damagePerSecond").innerHTML = "You are dealing " + formate(getTotalMinerDamage(),2) + " per second"
   document.getElementById("notation").innerHTML = "Notation: " + (game.notation == 0 ? "Scientific " : "Standard I" + (game.notation >= 2 ? (game.notation >= 3 ? "II " : "I ") : " ")) + "(Scientific Notation start at 1e" + (3 * 10 ** game.notation + 3) + ")"
   document.getElementById("nextMinerReq").innerHTML = "Get " + formate(game.cursor.amount[0].lt(50) ? new Decimal(50) : (game.cursor.amount[0].lt(150) ? new Decimal(150) : new Decimal(Infinity))) + " Cursors to Unlock new Miner"
 } //the end of gameloop
