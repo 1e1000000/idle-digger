@@ -21,7 +21,7 @@ load();
 Tab(game.mainTab)
 
 const minerBaseEff = [new Decimal(0.1),new Decimal(4),new Decimal(0),new Decimal(0)]; // when you buy 1 Miner, the effect
-const minerReq = [new Decimal(49.999),new Decimal(149.999),new Decimal(1.79e308),new Decimal(1.79e308)] // first one is Miner 0, require cursor amount
+const minerReq = [new Decimal(49.999),new Decimal(149.999),new Decimal(1.79769313486231e308),new Decimal(1.79769313486231e308)] // first one is Miner 0, require cursor amount
 
 let deltaTime;
 const calculate = window.setInterval(() => {
@@ -71,5 +71,5 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
     document.getElementById("miner" + i + "Cost").innerHTML = "Cost: " + formate(getMinerCost(i, game.miner.bought[i]),2)
   }
   document.getElementById("notation").innerHTML = "Notation: " + (game.notation == 0 ? "Scientific " : "Standard I" + (game.notation >= 2 ? (game.notation >= 3 ? "II " : "I ") : " ")) + "(Scientific Notation start at 1e" + (3 * 10 ** game.notation + 3) + ")"
-  document.getElementById("nextMinerReq").innerHTML = "Get " + formate(game.cursor.amount[0].lt(50) ? new Decimal(50) : (game.cursor.amount[0].lt(150) ? new Decimal(150) : new Decimal(Infinity))) + " Cursors to Unlock new Miner"
+  document.getElementById("nextMinerReq").innerHTML = "Get " + formate(game.cursor.amount[0].lt(50) ? new Decimal(50) : (game.cursor.amount[0].lt(150) ? new Decimal(150) : new Decimal(1.79769313486231e308))) + " Cursors to Unlock new Miner"
 } //the end of gameloop
