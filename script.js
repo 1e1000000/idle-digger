@@ -4,14 +4,11 @@ game = {
   cursor: {
     amount: [new Decimal(0)], // first one is x^0, second is derivative x^1, etc.
     bought: [new Decimal(0)],
-    power: [new Decimal(1)],
   },
   clickCoolDown: 0, // millisecond
   miner: {
     bought: [new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0)],
-    power: [new Decimal(1),new Decimal(1),new Decimal(1),new Decimal(1)],
     baseEff: [new Decimal(0.1),new Decimal(0),new Decimal(0),new Decimal(0)], // when you buy 1 Miner, the effect
-    req: [new Decimal(50),new Decimal(150),new Decimal(1.79e308),new Decimal(1.79e308)] // first one is Miner 0, require cursor amount
   },
   dealed: new Decimal(0),
   lastTick: Date.now(),
@@ -23,6 +20,8 @@ game = {
 };
 load();
 Tab(game.mainTab)
+
+const minerReq = [new Decimal(50),new Decimal(150),new Decimal(1.79e308),new Decimal(1.79e308)] // first one is Miner 0, require cursor amount
 
 let deltaTime;
 const calculate = window.setInterval(() => {
@@ -44,17 +43,11 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   if (game.clickCoolDown > 0){
     game.clickCoolDown -= unadjusted
   };
-  for (let i=0; i<1; i++) {
-    game.cursor.power[i] = getCursorPower(i)
-  };
-  for (let i=0; i<4; i++) {
-    game.miner.power[i] = getMinerPower(i)
-  }
   // update display
   document.getElementById("coins").style.display = (game.depth.gte(1) ? "block" : "none")
   for (let i=0; i<4; i++) {
-    document.getElementById("minerBought" + i).style.display = (game.cursor.amount[0].gte(game.miner.req[i]) ? "block" : "none")
-    document.getElementById("maxMinerBought" + i).style.display = (game.cursor.amount[0].gte(game.miner.req[i]) ? "block" : "none")
+    document.getElementById("minerBought" + i).style.display = (game.cursor.amount[0].gte(minerReq[i]) ? "block" : "none")
+    document.getElementById("maxMinerBought" + i).style.display = (game.cursor.amount[0].gte(minerReq[i]) ? "block" : "none")
   }
   document.getElementById("damagePerSecond").style.display = (getTotalMinerDamage().gt(0) ? "block" : "none")
   // update texts
@@ -65,12 +58,12 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   document.getElementById("maxBulk").innerHTML = "Max Bulk buy: " + game.maxBulk
   for (let i=0; i<1; i++) {
     document.getElementById("cursor" + i + "Amount").innerHTML = (game.cursor.bought[i].gte(1000)?(game.cursor.bought[i].gte(10000)?"Superscaled ":"Scaled "):"") + "Cursor: " + formate(game.cursor.amount[i],0) + " (" + formate(game.cursor.bought[i],0) + " Bought)"
-    document.getElementById("cursor" + i + "Power").innerHTML = "Power: " + formate(game.cursor.power[i],2) + "x"
+    document.getElementById("cursor" + i + "Power").innerHTML = "Power: " + formate(getCursorPower(i),2) + "x"
     document.getElementById("cursor" + i + "Cost").innerHTML = "Cost: " + formate(getCursorCost(i, game.cursor.bought[i]),2)
   }
   for (let i=0; i<4; i++) {
     document.getElementById("miner" + i + "Amount").innerHTML = (game.miner.bought[i].gte(1000)?(game.miner.bought[i].gte(10000)?"Superscaled ":"Scaled "):"") + "Miner " + i + ": " + formate(game.miner.bought[i],0)
-    document.getElementById("miner" + i + "Power").innerHTML = "Power: "+ formate(game.miner.power[i],2) +"x"
+    document.getElementById("miner" + i + "Power").innerHTML = "Power: "+ formate(getMinerPower(i),2) +"x"
     document.getElementById("miner" + i + "Cost").innerHTML = "Cost: " + formate(getMinerCost(i, game.miner.bought[i]),2)
   }
   document.getElementById("damagePerSecond").innerHTML = "You are dealing " + formate(getTotalMinerDamage(),2) + " per second"
