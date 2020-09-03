@@ -40,6 +40,7 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   if (game.dealed.lt(0)) game.dealed = new Decimal(0)
   game.depth = getDepth(game.dealed);
   game.coins = (game.coins).add(getCoinPerSecond().div(1000).times(unadjusted));
+  if (game.coins.lt(0)) game.coins = new Decimal(0)
   if (game.clickCoolDown > 0){
     game.clickCoolDown -= unadjusted
   };
