@@ -53,7 +53,7 @@ function load() {
     merge(game, savegame);
   };
   if (game.version<=0) {
-    game.miner.req = [new Decimal(50),new Decimal(150),new Decimal(1.79e308),new Decimal(1.79e308)]
+    // blank
   }
 }
 
@@ -115,14 +115,11 @@ function reset() { // now value
     cursor: {
       amount: [new Decimal(0)], // first one is x^0, second is derivative x^1, etc.
       bought: [new Decimal(0)],
-      power: [new Decimal(1)],
     },
     clickCoolDown: 0, // millisecond
     miner: {
       bought: [new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0)],
-      power: [new Decimal(1),new Decimal(1),new Decimal(1),new Decimal(1)],
       baseEff: [new Decimal(0.1),new Decimal(0),new Decimal(0),new Decimal(0)], // when you buy 1 Miner, the effect
-      req: [new Decimal(50),new Decimal(150),new Decimal(1.79e308),new Decimal(1.79e308)] // first one is Miner 0, require cursor amount
     },
     dealed: new Decimal(0),
     lastTick: Date.now(),
