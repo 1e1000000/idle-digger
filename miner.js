@@ -10,7 +10,7 @@ function getMinerCost(generation,amount) { // generation: Miner #, amount: curre
 
 function buyMiner(generation) {
   if (game.coins.gte(getMinerCost(generation, game.miner.bought[generation]))) {
-    game.coins = game.coins.sub(getMinerCost(generation, game.miner.bought[0]))
+    game.coins = game.coins.sub(getMinerCost(generation, game.miner.bought[generation]))
     game.miner.bought[generation] = game.miner.bought[generation].add(1)
   }
 }
@@ -26,7 +26,7 @@ function buyMultipleMiner(generation, amount) { //amount: bulk
 function buyMaxMiner(generation) {
   let i = new Decimal(0)
   while (game.coins.gte(getMinerCost(generation, game.miner.bought[generation])) && i.lt(10000)) {  // hardcap at 10k to prevent performance issue
-    buyCursor()
+    buyMiner(generation)
     i = i.add(1)
   }
 }
