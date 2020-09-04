@@ -57,7 +57,7 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
     document.getElementById("maxMinerBought" + i).style.display = (game.cursor.amount[0].gte(minerReq[i]) ? "block" : "none")
   }
   document.getElementById("tab2").style.display = (game.cursor.amount[0].gte(49.999) ? "inline-block" : "none")
-  document.getElementById("tab3").style.display = (game.cursor.amount[0].gte(199.999) ? "inline-block" : "none")
+  document.getElementById("tab3").style.display = (game.cursor.amount[0].gte(299.999) ? "inline-block" : "none")
   document.getElementById("damagePerSecond").style.display = (getTotalMinerDamage().gt(0) ? "block" : "none")
   // update texts
   document.getElementById("depth").innerHTML = "Your depth is currently " + formate(game.depth,0) + " meter"
