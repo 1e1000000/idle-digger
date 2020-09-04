@@ -45,3 +45,26 @@ function formateNum(ret, dp) {
 function toggleNotation() {
   game.notation = (game.notation + 1) % 4
 }
+
+function formateTime(ret) {
+  let y = new Decimal(31556926)
+  let d = new Decimal(86400)
+  let h = new Decimal(3600)
+  let m = new Decimal(60)
+  let s = new Decimal(1)
+  if (ret.lt(m)) {
+    return formate(ret,3) + "s"
+  } else if (ret.lt(h)) {
+    let modS = ret.sub(ret.div(m).floor().mul(m)) // seconds
+    return formate(ret.div(m).floor()) + "m " + formate(modS,3) + "s"
+  } else if (ret.lt(d)) {
+    let modS = ret.sub(ret.div(m).floor().mul(m)) // seconds
+    let modM = ret.sub(ret.div(h).floor().mul(h)) // minutes
+    return formate(ret.div(h).floor()) + "h " + formate(modM.div(m).floor()) + "m " + formate(modS,3) + "s"
+  } else if (ret.lt(y)) {
+    let modS = ret.sub(ret.div(m).floor().mul(m)) // seconds
+    let modM = ret.sub(ret.div(h).floor().mul(h)) // minutes
+    let modH = ret.sub(ret.div(d).floor().mul(d)) // hours
+    return formate(ret.div(d).floor()) + "d " + formate(modH.div(h).floor()) + "h " + formate(modM.div(m).floor()) + "m " + formate(modS,3) + "s"
+  } else return formate(ret.div(y),3) + "y"
+}
