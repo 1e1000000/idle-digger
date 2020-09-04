@@ -39,7 +39,7 @@ function getTotalMinerDamage() {
   let ret = new Decimal(0)
   let rett = new Decimal(0)
   for (let i=0; i<4; i++) {
-    rett = game.miner.bought[i].mul(minerBaseEff[i]).mul(getMinerPower(i)
+    rett = game.miner.bought[i].mul(minerBaseEff[i]).mul(getMinerPower(i))
     if (i = 0 && game.cursor.amount.gte(199.999)) rett = rett.mul(10)
     ret = ret.add(rett)
   }
