@@ -83,5 +83,5 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
     (game.cursor.amount[0].lt(249.999) ? new Decimal(250) : new Decimal(1.79769313486231e308)))) + 
     " Cursors to Unlock new Miner"
   document.getElementById("milestone2").innerHTML = "100 Cursor: Add 1% of Miner damage to Cursor Damage, Currently: +" + formate(getTotalMinerDamage().div(100),2)
-  document.getElementById("milestone4").innerHTML = "200 Cursor: You gain coin 10x faster and all Miner are 1% stronger for every miner bought, Currently: +" + formate(getTotalMiners().div(100))
+  document.getElementById("milestone4").innerHTML = "200 Cursor: You gain coin 10x faster and all Miner are 1% stronger for every miner bought, Currently: +" + formate(getTotalMiners()) + "%"
 } //the end of gameloop
