@@ -11,6 +11,7 @@ function getHealth(ret) { // ret: depth
 function getCoinPerSecond() {
   let ret = new Decimal(2).pow(game.depth.root(3)).sub(1)
   if (game.cursor.amount[0].gte(199.999)) ret = ret.mul(10)
+  return ret
 }
 
 function toggleMaxBulk() {
