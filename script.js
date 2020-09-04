@@ -78,8 +78,8 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   }
   document.getElementById("notation").innerHTML = "Notation: " + (game.notation == 0 ? "Scientific " : "Standard I" + (game.notation >= 2 ? (game.notation >= 3 ? "II " : "I ") : " ")) + "(Scientific Notation start at 1e" + (3 * 10 ** game.notation + 3) + ")"
   document.getElementById("nextMinerReq").innerHTML = "Get " + formate(
-    game.cursor.amount[0].lt(50) ? new Decimal(50) : 
-    (game.cursor.amount[0].lt(150) ? new Decimal(150) : 
-    (game.cursor.amount[0].lt(250) ? new Decimal(250) : new Decimal(1.79769313486231e308)))) + 
+    game.cursor.amount[0].lt(49.999) ? new Decimal(50) : 
+    (game.cursor.amount[0].lt(149.999) ? new Decimal(150) : 
+    (game.cursor.amount[0].lt(249.999) ? new Decimal(250) : new Decimal(1.79769313486231e308)))) + 
     " Cursors to Unlock new Miner"
 } //the end of gameloop
