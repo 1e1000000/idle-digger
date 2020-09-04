@@ -46,6 +46,6 @@ function getTotalMinerDamage() {
 
 function getMinerPower(generation) {
   let ret = new Decimal(2).pow(game.miner.bought[generation].div(25).floor())
-  if (generation = 0 && game.cursor.amount.gte(199.999) ret = ret.mul(10)
+  if (generation = 0 && game.cursor.amount.gte(199.999)) ret = ret.mul(10)
   return ret
 }
