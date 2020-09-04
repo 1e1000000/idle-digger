@@ -1,6 +1,8 @@
 game = {
   depth: new Decimal(0),
+  bestDepth: new Decimal(0),
   coins: new Decimal(0),
+  totalCoins: new Decimal(0),
   cursor: {
     amount: [new Decimal(0)], // first one is x^0, second is derivative x^1, etc.
     bought: [new Decimal(0)],
@@ -11,17 +13,18 @@ game = {
   },
   dealed: new Decimal(0),
   lastTick: Date.now(),
+  totalPlayed: 0, // millisecond
   mainTab: 1,
   // option
   maxBulk: 1000,
   notation: 0,
-  version: 0
+  version: 0,
 };
 load();
 Tab(game.mainTab)
 
 const minerBaseEff = [new Decimal(0.1),new Decimal(4),new Decimal(0),new Decimal(0)]; // when you buy 1 Miner, the effect
-const minerReq = [new Decimal(49.999),new Decimal(149.999),new Decimal(1.79769313486231e308),new Decimal(1.79769313486231e308)] // first one is Miner 0, require cursor amount
+const minerReq = [new Decimal(49.999),new Decimal(149.999),new Decimal(249.999),new Decimal(1.79769313486231e308)] // first one is Miner 0, require cursor amount
 
 let deltaTime;
 const calculate = window.setInterval(() => {
@@ -36,10 +39,13 @@ var autoSave = window.setInterval(function() {
 
 function loop(unadjusted, off = 0) { //the begin of gameloop
   // update variables
+  game.totalPlayed += unadjusted
   game.dealed = (game.dealed).add(getTotalMinerDamage().div(1000).times(unadjusted));
   if (game.dealed.lt(0)) game.dealed = new Decimal(0)
   game.depth = getDepth(game.dealed);
+  if (game.bestDepth.gte(game.depth)) game.bestDepth = game.depth;
   game.coins = (game.coins).add(getCoinPerSecond().div(1000).times(unadjusted));
+  game.totalCoins = (game.totalCoins).add(getCoinPerSecond().div(1000).times(unadjusted));
   if (game.coins.lt(0)) game.coins = new Decimal(0)
   if (game.clickCoolDown > 0){
     game.clickCoolDown -= unadjusted
@@ -71,5 +77,9 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
     document.getElementById("miner" + i + "Cost").innerHTML = "Cost: " + formate(getMinerCost(i, game.miner.bought[i]),2)
   }
   document.getElementById("notation").innerHTML = "Notation: " + (game.notation == 0 ? "Scientific " : "Standard I" + (game.notation >= 2 ? (game.notation >= 3 ? "II " : "I ") : " ")) + "(Scientific Notation start at 1e" + (3 * 10 ** game.notation + 3) + ")"
-  document.getElementById("nextMinerReq").innerHTML = "Get " + formate(game.cursor.amount[0].lt(50) ? new Decimal(50) : (game.cursor.amount[0].lt(150) ? new Decimal(150) : new Decimal(1.79769313486231e308))) + " Cursors to Unlock new Miner"
+  document.getElementById("nextMinerReq").innerHTML = "Get " + formate(
+    game.cursor.amount[0].lt(50) ? new Decimal(50) : 
+    (game.cursor.amount[0].lt(150) ? new Decimal(150) : 
+    (game.cursor.amount[0].lt(250) ? new Decimal(250) : new Decimal(1.79769313486231e308)))) + 
+    " Cursors to Unlock new Miner"
 } //the end of gameloop
