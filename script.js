@@ -23,7 +23,7 @@ game = {
 load();
 Tab(game.mainTab)
 
-const minerBaseEff = [new Decimal(0.1),new Decimal(4),new Decimal(140),new Decimal(0)]; // when you buy 1 Miner, the effect
+const minerBaseEff = [new Decimal(0.1),new Decimal(2),new Decimal(100),new Decimal(0)]; // when you buy 1 Miner, the effect
 const minerReq = [new Decimal(49.999),new Decimal(149.999),new Decimal(249.999),new Decimal(1.79769313486231e308)] // first one is Miner 0, require cursor amount
 
 let deltaTime;
