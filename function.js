@@ -43,6 +43,6 @@ function getTotalMiners() {
 }
 
 function getDamageExp() {
-  if (game.depth.lt(49999.999)) return new Decimal(1)
-  return new Decimal(0.5)
+  if (game.depth.lt(12499.999)) return new Decimal(1)
+  return new Decimal(1).div(new Decimal(game.depth.div(12500)).log2().sqrt())
 }
