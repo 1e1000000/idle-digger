@@ -7,7 +7,7 @@ function getMinerCost(generation,amount) { // generation: Miner #, amount: curre
   if (amount.lt(10000)) return getMinerInitialCost(generation).mul(new Decimal(1.09).pow(amount.pow(2).div(1000)))
   if (amount.lt(100000)) return getMinerInitialCost(generation).mul(new Decimal(1.09).pow(amount.pow(amount.log10().sqrt()).div(1000)))
   let ret = getMinerInitialCost(generation).mul(new Decimal(1.09).pow(amount.pow(amount.log10().sqrt()).div(1000)))
-  return ret.tetrate(new Decimal(1).add(amount.div(100000)))
+  return ret.tetrate(amount.div(100000))
 }
 
 function buyMiner(generation) {
