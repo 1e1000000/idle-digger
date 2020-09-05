@@ -2,7 +2,9 @@ function getCursorCost(generation,amount) { // amount: currently cursor
   if (amount.lt(10)) return new Decimal(10).add(amount)
   if (amount.lt(1000)) return new Decimal(20).mul(new Decimal(1.05).pow(amount.sub(10)))
   if (amount.lt(10000)) return new Decimal(20).mul(new Decimal(1.05).pow(amount.sub(10).pow(2).div(990)))
-  return new Decimal(20).mul(new Decimal(1.05).pow(amount.sub(10).pow(amount.log10().sqrt()).div(990)))
+  if (amount.lt(100000)) return new Decimal(20).mul(new Decimal(1.05).pow(amount.sub(10).pow(amount.log10().sqrt()).div(990)))
+  let ret = new Decimal(20).mul(new Decimal(1.05).pow(amount.sub(10).pow(amount.log10().sqrt()).div(990)))
+  return ret.tetrate(new Decimal(1).add(amount.div(100000)))
 }
 
 function getMaxCursorBought(generation) {
