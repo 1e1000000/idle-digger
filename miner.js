@@ -42,7 +42,7 @@ function getTotalMinerDamage() {
     ret = ret.add(game.miner.bought[i].mul(minerBaseEff[i]).mul(getMinerPower(i)))
   };
   if (game.cursor.amount[0].gte(199.999)) ret = ret.mul(getTotalMiners().div(100).add(1));
-  return ret
+  return ret.pow(getDamageExp())
 }
 
 function getMinerPower(generation) {
