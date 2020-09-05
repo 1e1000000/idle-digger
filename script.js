@@ -67,12 +67,12 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   document.getElementById("damagePerSecond").innerHTML = "You are dealing " + formate(getTotalMinerDamage(),2) + " per second"
   document.getElementById("maxBulk").innerHTML = "Max Bulk buy: " + game.maxBulk
   for (let i=0; i<1; i++) {
-    document.getElementById("cursor" + i + "Amount").innerHTML = (game.cursor.bought[i].gte(1000)?(game.cursor.bought[i].gte(10000)?"Superscaled ":"Scaled "):"") + "Cursor: " + formate(game.cursor.amount[i],0) + " (" + formate(game.cursor.bought[i],0) + " Bought)"
+    document.getElementById("cursor" + i + "Amount").innerHTML = (game.cursor.bought[i].gte(1000) ? (game.cursor.bought[i].gte(10000) ? (game.cursor.bought[i].gte(100000) ? "Hyper " : "Superscaled ") : "Scaled ") : "") + "Cursor: " + formate(game.cursor.amount[i],0) + " (" + formate(game.cursor.bought[i],0) + " Bought)"
     document.getElementById("cursor" + i + "Power").innerHTML = "Power: " + formate(getCursorPower(i),2) + "x"
     document.getElementById("cursor" + i + "Cost").innerHTML = "Cost: " + formate(getCursorCost(i, game.cursor.bought[i]),2)
   }
   for (let i=0; i<4; i++) {
-    document.getElementById("miner" + i + "Amount").innerHTML = (game.miner.bought[i].gte(1000)?(game.miner.bought[i].gte(10000)?"Superscaled ":"Scaled "):"") + "Miner " + i + ": " + formate(game.miner.bought[i],0)
+    document.getElementById("miner" + i + "Amount").innerHTML = (game.miner.bought[i].gte(1000) ? (game.miner.bought[i].gte(10000) ? (game.miner.bought[i].gte(100000) ? "Hyper " : "Superscaled ") : "Scaled ") : "") + "Miner " + i + ": " + formate(game.miner.bought[i],0)
     document.getElementById("miner" + i + "Power").innerHTML = "Power: "+ formate(getMinerPower(i),2) +"x"
     document.getElementById("miner" + i + "Cost").innerHTML = "Cost: " + formate(getMinerCost(i, game.miner.bought[i]),2)
   }
