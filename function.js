@@ -60,7 +60,7 @@ function getFactoryEnergyPerSecond() {
   return ret
 }
 
-function getFactorEnergyCap() {
+function getFactoryEnergyCap() {
   let ret = game.cursor.bought[0].div(100).mul(game.cursor.bought[0].div(3).log10())
   return ret
 }
