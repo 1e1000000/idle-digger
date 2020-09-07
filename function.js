@@ -45,3 +45,15 @@ function getTotalMiners() {
 function getHealthExp() {
   return new Decimal(1)
 }
+
+function isFactoryUnlocked() {
+  if game.cursor.amount[0].gte(299.999) {
+    return true
+  } else return false
+}
+
+function getFactoryEnergyPerSecond() {
+  if isFactoryUnlocked() {
+    return new Decimal(1).add(game.miner.bought[2]).log10().div(100)
+  } else return new Decimal(0)
+}
