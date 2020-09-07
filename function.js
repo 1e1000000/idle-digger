@@ -53,7 +53,14 @@ function isFactoryUnlocked() {
 }
 
 function getFactoryEnergyPerSecond() {
-  if isFactoryUnlocked() {
-    return new Decimal(1).add(game.miner.bought[2]).log10().div(100)
-  } else return new Decimal(0)
+  let ret = new Decimal(0);
+  if (isFactoryUnlocked()) {
+    ret = new Decimal(1).add(game.miner.bought[2]).log10().div(100)                   
+  }
+  return ret
+}
+
+function getFactorEnergyCap() {
+  let ret = game.cursor.bought[0].div(100).mul(game.cursor.bought[0].div(3).log10())
+  return ret
 }
