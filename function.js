@@ -64,3 +64,8 @@ function getFactoryEnergyCap() {
   let ret = game.cursor.bought[0].div(100).mul(game.cursor.bought[0].div(3).log10())
   return ret
 }
+
+function getFactoryEnergyEff() {
+  let ret = new Decimal(1).add(game.factoryEnergy)
+  return ret
+}
