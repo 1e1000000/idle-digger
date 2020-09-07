@@ -47,7 +47,7 @@ function getHealthExp() {
 }
 
 function isFactoryUnlocked() {
-  if game.cursor.amount[0].gte(299.999) {
+  if (game.cursor.amount[0].gte(299.999)) {
     return true
   } else return false
 }
