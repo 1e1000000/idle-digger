@@ -42,6 +42,6 @@ function getTotalMiners() {
   return ret
 }
 
-function getDamageExp() {
+function getHealthExp() {
   return new Decimal(1)
 }
