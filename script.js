@@ -13,7 +13,7 @@ game = {
   },
   dealed: new Decimal(0),
   factoryEnergy: new Decimal(0),
-  factoryUpgrade: [null, new Decimal(0)],
+  factoryUpgrade: [null, new Decimal(0), new Decimal(0)],
   lastTick: Date.now(),
   totalPlayed: 0, // millisecond
   mainTab: 1,
