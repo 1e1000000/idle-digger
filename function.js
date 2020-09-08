@@ -55,7 +55,8 @@ function isFactoryUnlocked() {
 function getFactoryEnergyPerSecond() {
   let ret = new Decimal(0);
   if (isFactoryUnlocked()) {
-    ret = new Decimal(1).add(game.miner.bought[2]).log10().div(100)                   
+    ret = new Decimal(1).add(game.miner.bought[2]).log10().div(100)
+    ret = ret.mul(new Decimal(1.1).pow(game.factoryUpgrade[1]))
   }
   return ret
 }
