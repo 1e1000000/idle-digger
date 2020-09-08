@@ -6,6 +6,6 @@ function getFactoryUpgradeCost(id,amount) {
 function buyFactoryUpgrade(id) {
   if (game.factoryEnergy.gte(getFactoryUpgradeCost(id, game.factoryUpgrade[id]))) {
     game.factoryEnergy = game.factoryEnergy.sub(getFactoryUpgradeCost(id, game.factoryUpgrade[id]))
-    game.miner.bought[id] = game.miner.bought[id].add(1)
+    game.factoryUpgrade[id] = game.factoryUpgrade[id].add(1)
   }
 }
