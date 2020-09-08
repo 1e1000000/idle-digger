@@ -44,18 +44,19 @@ var autoSave = window.setInterval(function() {
 }, 10000)
 
 function loop(unadjusted, off = 0) { //the begin of gameloop
+  let ms = unadjusted
   // update variables
-  game.totalPlayed += unadjusted
-  game.dealed = (game.dealed).add(getTotalMinerDamage().div(1000).times(unadjusted));
+  game.totalPlayed += ms
+  game.dealed = (game.dealed).add(getTotalMinerDamage().div(1000).times(ms));
   if (game.dealed.lt(0)) game.dealed = new Decimal(0)
   game.depth = getDepth(game.dealed);
   if (game.bestDepth.gte(game.depth)) game.bestDepth = game.depth;
-  game.coins = (game.coins).add(getCoinPerSecond().div(1000).times(unadjusted));
-  game.totalCoins = (game.totalCoins).add(getCoinPerSecond().div(1000).times(unadjusted));
+  game.coins = (game.coins).add(getCoinPerSecond().div(1000).times(ms));
+  game.totalCoins = (game.totalCoins).add(getCoinPerSecond().div(1000).times(ms));
   if (game.coins.lt(0)) game.coins = new Decimal(0)
-  if (game.clickCoolDown > 0){
-    game.clickCoolDown -= unadjusted
-  };
+  if (game.clickCoolDown > 0) game.clickCoolDown -= ms;
+  game.factoryEnergy = (game.factoryEnergy).add(getFactoryEnergyPerSecond().div(1000).times(ms));
+  if (game.factoryEnergy.gt(getFactoryEnergyCap())) game.factoryEnergy = getFactoryEnergyCap();
   // update display
   document.getElementById("coins").style.display = (game.depth.gte(1) ? "block" : "none")
   for (let i=0; i<4; i++) {
