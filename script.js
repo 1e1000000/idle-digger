@@ -88,7 +88,10 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
     (game.cursor.amount[0].lt(249.999) ? new Decimal(250) : new Decimal(1.79769313486231e308)))) + 
     " Cursors to Unlock new Miner"
   document.getElementById("damagePerSecond").style.display = (getTotalMinerDamage().gt(0) ? "block" : "none")
-    for (let i=1; i<7; i++) {
+  document.getElementById("factoryEnergy").innerHTML = "You have " + formate(game.factoryEnergy, 3) + " Factory Energy, Multiply all Miner damage by " + formate(getFactoryEnergyEff(), 3)
+  document.getElementById("factoryEnergyPerSecond").innerHTML = "You are getting " + formate(getFactoryEnergyPerSecond(), 3) + " Factory Energy per second (based on Miners),"
+  document.getElementById("factoryEnergyCap").innerHTML = "but will capped at " + formate(getFactoryEnergyCap(), 3) + " Factory Energy (based on Cursors)"
+  for (let i=1; i<7; i++) {
     document.getElementById("milestone" + i + "achieve").innerHTML = (game.cursor.amount[0].gte(milestoneReq[i]) ? "(Achieved) " : "")
   }
   document.getElementById("milestone2effect").innerHTML = formate((game.cursor.amount[0].gte(99.999) ? getTotalMinerDamage().div(100) : new Decimal(0)), 2)
