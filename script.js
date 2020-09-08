@@ -31,7 +31,11 @@ const milestoneReq = [null,new Decimal(49.999),new Decimal(99.999),new Decimal(1
 let deltaTime;
 const calculate = window.setInterval(() => {
   deltaTime = Date.now() - game.lastTick;
-  loop(deltaTime);
+  if (deltaTime > 60) {
+    for (let i=0; i<1000; i++) {
+      loop(deltaTime/1000)
+    }
+  } else loop(deltaTime)
   game.lastTick = Date.now()
 }, 0);
 
