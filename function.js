@@ -63,6 +63,7 @@ function getFactoryEnergyPerSecond() {
 
 function getFactoryEnergyCap() {
   let ret = game.cursor.bought[0].div(100).mul(game.cursor.amount[0].div(3).log10())
+  if (game.factoryUpgrade[4].gt(0.5) && ret.gte(1)) ret = ret.pow(2)
   return ret
 }
 
