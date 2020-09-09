@@ -19,5 +19,5 @@ function getFactoryUpgEff(id) {
     return new Decimal(0)
   } else if (id == 4) {
     return game.cursor.bought[0].div(100).mul(game.cursor.amount[0].div(3).log10())
-  } else return false
+  } else return new Decimal(0)
 }
