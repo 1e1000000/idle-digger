@@ -34,13 +34,13 @@ const factoryUpgradeCostScaling = [null,new Decimal(2),new Decimal(4),new Decima
 let deltaTime;
 const calculate = window.setInterval(() => {
   deltaTime = Date.now() - game.lastTick;
-  if (deltaTime > 60000) {
+  if (deltaTime > 600000) {
     for (let i=0; i<1000; i++) {
       loop(deltaTime/1000)
     }
   } else loop(deltaTime)
   game.lastTick = Date.now()
-}, 0);
+}, 20);
 
 var autoSave = window.setInterval(function() {
   save()
