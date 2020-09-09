@@ -12,8 +12,8 @@ function buyFactoryUpgrade(id) {
 
 function getFactoryUpgEff(id) {
   if (id == 1) {
-    return new Decimal(1.1).pow(factoryUpgrade[id])
+    return new Decimal(1.1).pow(game.factoryUpgrade[id])
   } else if (id == 2) {
-    return new Decimal(1).add(factoryUpgrade[id]).sqrt()
+    return new Decimal(1).add(game.factoryUpgrade[id]).sqrt()
   } else return false
 }
