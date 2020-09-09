@@ -96,7 +96,8 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   document.getElementById("factoryEnergyPerSecond").innerHTML = "You are getting " + formate(getFactoryEnergyPerSecond(), 3) + " Factory Energy per second (based on Miners),"
   document.getElementById("factoryEnergyCap").innerHTML = "but will capped at " + formate(getFactoryEnergyCap(), 3) + " Factory Energy (based on Cursors)"
   for (let i=1; i<2; i++) {
-    document.getElementById("factoryUpg" + i + "Level").innerHTML = "Level " + formate(game.factoryUpgrade[i])
+    document.getElementById("factoryUpg" + i + "Eff").innerHTML = formate(getFactoryUpgEff(i), 2)
+    document.getElementById("factoryUpg" + i + "Level").innerHTML = (game.factoryUpgrade[i].gte(100) ? "Scaled " : "") + "Level " + formate(game.factoryUpgrade[i])
     document.getElementById("factoryUpg" + i + "Cost").innerHTML = "Cost: " + formate(getFactoryUpgradeCost(i,game.factoryUpgrade[i]), 3)
   }
   for (let i=1; i<7; i++) {
