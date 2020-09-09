@@ -60,7 +60,10 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   if (game.clickCoolDown > 0) game.clickCoolDown -= ms;
   game.factoryEnergy = (game.factoryEnergy).add(getFactoryEnergyPerSecond().div(1000).times(ms));
   if (game.factoryEnergy.gt(getFactoryEnergyCap())) game.factoryEnergy = getFactoryEnergyCap();
-  // update display
+  updateDisplay()
+}
+
+function updateDisplay() {
   document.getElementById("coins").style.display = (game.depth.gte(1) ? "block" : "none")
   for (let i=0; i<4; i++) {
     document.getElementById("minerBought" + i).style.display = (game.cursor.amount[0].gte(minerReq[i]) ? "block" : "none")
@@ -71,7 +74,9 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   document.getElementById("factoryUpgrade2").style.display = (game.factoryUpgrade[1].gte(2.999) ? "inline-block" : "none")
   document.getElementById("factoryUpgrade3").style.display = (game.factoryUpgrade[2].gte(1.999) ? "inline-block" : "none")
   document.getElementById("factoryUpgrade4").style.display = (game.factoryUpgrade[2].gte(0.999) ? "inline-block" : "none")
-  // update texts
+}
+
+function updateText() {
   document.getElementById("depth").innerHTML = "Your depth is currently " + formate(game.depth,0) + " meter"
   document.getElementById("health").innerHTML = "Your health on this block is currently " + formate(getHealth(game.depth).sub(game.dealed),2) + "/" + formate(getHealth(game.depth).sub(getHealth(game.depth.sub(1))),2)
   document.getElementById("coins").innerHTML = "You have " + formate(game.coins,2) + " coins (+" + formate(getCoinPerSecond(),2) + "/s)"
@@ -118,4 +123,4 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   document.getElementById("statistic3").innerHTML = "You have bought " + formate(getTotalMiners()) + " miners"
   document.getElementById("statistic4").innerHTML = "You have dealed " + formate(game.dealed,2) + " damage"
   document.getElementById("statistic5").innerHTML = "Your best depth was " + formate(game.depth) + " meter"
-} //the end of gameloop
+}
