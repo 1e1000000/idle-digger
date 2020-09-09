@@ -48,7 +48,6 @@ var autoSave = window.setInterval(function() {
 
 function loop(unadjusted, off = 0) { //the begin of gameloop
   let ms = unadjusted
-  // update variables
   game.totalPlayed += ms
   game.dealed = (game.dealed).add(getTotalMinerDamage().div(1000).times(ms));
   if (game.dealed.lt(0)) game.dealed = new Decimal(0)
@@ -61,6 +60,7 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   game.factoryEnergy = (game.factoryEnergy).add(getFactoryEnergyPerSecond().div(1000).times(ms));
   if (game.factoryEnergy.gt(getFactoryEnergyCap())) game.factoryEnergy = getFactoryEnergyCap();
   updateDisplay()
+  updateText()
 }
 
 function updateDisplay() {
@@ -93,7 +93,6 @@ function updateText() {
     document.getElementById("miner" + i + "Power").innerHTML = "Power: "+ formate(getMinerPower(i),2) +"x"
     document.getElementById("miner" + i + "Cost").innerHTML = "Cost: " + formate(getMinerCost(i, game.miner.bought[i]),2)
   }
-  document.getElementById("notation").innerHTML = "Notation: " + (game.notation == 0 ? "Scientific " : "Standard I" + (game.notation >= 2 ? (game.notation >= 3 ? "II " : "I ") : " ")) + "(Scientific Notation start at 1e" + (3 * 10 ** game.notation + 3) + ")"
   document.getElementById("nextMinerReq").innerHTML = "Get " + formate(
     game.cursor.amount[0].lt(49.999) ? new Decimal(50) : 
     (game.cursor.amount[0].lt(149.999) ? new Decimal(150) : 
@@ -113,6 +112,7 @@ function updateText() {
     document.getElementById("factoryUpg" + i + "Cost").innerHTML = "Cost: " + formate(getFactoryUpgradeCost(i,game.factoryUpgrade[i]), 3)
     }
   }
+  document.getElementById("notation").innerHTML = "Notation: " + (game.notation == 0 ? "Scientific " : "Standard I" + (game.notation >= 2 ? (game.notation >= 3 ? "II " : "I ") : " ")) + "(Scientific Notation start at 1e" + (3 * 10 ** game.notation + 3) + ")"
   for (let i=1; i<7; i++) {
     document.getElementById("milestone" + i + "achieve").innerHTML = (game.cursor.amount[0].gte(milestoneReq[i]) ? "(Achieved) " : "")
   }
@@ -122,5 +122,5 @@ function updateText() {
   document.getElementById("statistic2").innerHTML = "You have gained " + formate(game.totalCoins,2) + " coins"
   document.getElementById("statistic3").innerHTML = "You have bought " + formate(getTotalMiners()) + " miners"
   document.getElementById("statistic4").innerHTML = "You have dealed " + formate(game.dealed,2) + " damage"
-  document.getElementById("statistic5").innerHTML = "Your best depth was " + formate(game.depth) + " meter"
+  document.getElementById("statistic5").innerHTML = "Your best depth was " + formate(game.bestDepth) + " meter"
 }
