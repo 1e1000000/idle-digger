@@ -68,7 +68,7 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   }
   document.getElementById("tab2").style.display = (game.cursor.amount[0].gte(49.999) ? "inline-block" : "none")
   document.getElementById("tab3").style.display = (game.cursor.amount[0].gte(299.999) ? "inline-block" : "none")
-  document.getElementById("factoryUpgrade2").style.display = (game.factoryUpgrade[0].gte(2.999) ? "inline-block" : "none")
+  document.getElementById("factoryUpgrade2").style.display = (game.factoryUpgrade[1].gte(2.999) ? "inline-block" : "none")
   // update texts
   document.getElementById("depth").innerHTML = "Your depth is currently " + formate(game.depth,0) + " meter"
   document.getElementById("health").innerHTML = "Your health on this block is currently " + formate(getHealth(game.depth).sub(game.dealed),2) + "/" + formate(getHealth(game.depth).sub(getHealth(game.depth.sub(1))),2)
