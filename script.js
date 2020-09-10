@@ -72,8 +72,10 @@ function updateDisplay() {
   document.getElementById("tab2").style.display = (game.cursor.amount[0].gte(49.999) ? "inline-block" : "none")
   document.getElementById("tab3").style.display = (game.cursor.amount[0].gte(299.999) ? "inline-block" : "none")
   document.getElementById("factoryUpgrade2").style.display = (game.factoryUpgrade[1].gte(2.999) ? "inline-block" : "none")
-  document.getElementById("factoryUpgrade3").style.display = (game.factoryUpgrade[2].gte(1.999) ? "inline-block" : "none")
   document.getElementById("factoryUpgrade4").style.display = (game.factoryUpgrade[2].gte(0.999) ? "inline-block" : "none")
+  document.getElementById("factoryUpgrade5").style.display = (game.factoryUpgrade[2].gte(0.999) ? "inline-block" : "none")
+  document.getElementById("factoryUpgrade3").style.display = (game.factoryUpgrade[5].gte(0.999) ? "inline-block" : "none")
+  document.getElementById("factoryUpgrade6").style.display = (game.factoryUpgrade[5].gte(0.999) ? "inline-block" : "none")
 }
 
 function updateText() {
