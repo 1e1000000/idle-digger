@@ -14,7 +14,7 @@ function getFactoryUpgEff(id) {
   if (id == 1) {
     return new Decimal(1.1).pow(game.factoryUpgrade[id])
   } else if (id == 2) {
-    return new Decimal(1).add(game.factoryUpgrade[id]).sqrt()
+    return new Decimal(1).add(game.factoryUpgrade[id]).root(3)
   } else if (id == 3) {
     return new Decimal(0)
   } else if (id == 4) {
