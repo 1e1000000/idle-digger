@@ -118,11 +118,12 @@ function updateText() {
     }
   }
   document.getElementById("notation").innerHTML = "Notation: " + (game.notation == 0 ? "Scientific " : "Standard I" + (game.notation >= 2 ? (game.notation >= 3 ? "II " : "I ") : " ")) + "(Scientific Notation start at 1e" + (3 * 10 ** game.notation + 3) + ")"
-  for (let i=1; i<7; i++) {
+  for (let i=1; i<10; i++) {
     document.getElementById("milestone" + i + "achieve").innerHTML = (game.cursor.amount[0].gte(milestoneReq[i]) ? "(Achieved) " : "(" + game.cursor.amount[0].div(milestoneReq[i]).mul(100) + "% done)" )
   }
-  document.getElementById("milestone2effect").innerHTML = formate((game.cursor.amount[0].gte(99.999) ? getTotalMinerDamage().div(100) : new Decimal(0)), 2)
+  document.getElementById("milestone2effect").innerHTML = formate((game.cursor.amount[0].gte(99.999) ? getTotalMinerDamage().div(100).mul(getMilestone7Eff()) : new Decimal(0)), 2)
   document.getElementById("milestone4effect").innerHTML = formate(game.cursor.amount[0].gte(199.999) ? getTotalMiners() : new Decimal(0))
+  document.getElementById("milestone7effect").innerHTML = formate(getMilestone7Eff(), 2)
   document.getElementById("statistic1").innerHTML = "You have played for " + formateTime(new Decimal(game.totalPlayed/1000))
   document.getElementById("statistic2").innerHTML = "You have gained " + formate(game.totalCoins,2) + " coins"
   document.getElementById("statistic3").innerHTML = "You have bought " + formate(getTotalMiners()) + " miners"
