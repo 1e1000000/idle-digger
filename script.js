@@ -28,8 +28,8 @@ Tab(game.mainTab)
 const minerBaseEff = [new Decimal(0.1),new Decimal(2),new Decimal(56),new Decimal(0)]; // when you buy 1 Miner, the effect
 const minerReq = [new Decimal(49.999),new Decimal(149.999),new Decimal(249.999),new Decimal(1.79769313486231e308)] // first one is Miner 0, require cursor amount
 const milestoneReq = [null,new Decimal(49.999),new Decimal(99.999),new Decimal(149.999),new Decimal(199.999),new Decimal(249.999),new Decimal(299.999),new Decimal(Infinity)] // require cursor
-const factoryUpgradeInitCost = [null,new Decimal(1),new Decimal(6),new Decimal(Infinity),new Decimal(6.5)] // Infinity mean not completed yet
-const factoryUpgradeCostScaling = [null,new Decimal(2),new Decimal(4),new Decimal(10),new Decimal(Infinity)] // Infinity mean this is non-repeatable upgrade
+const factoryUpgradeInitCost = [null,new Decimal(1),new Decimal(6),new Decimal(Infinity),new Decimal(6.5),new Decimal(50),new Decimal(Infinity)] // Infinity mean not completed yet
+const factoryUpgradeCostScaling = [null,new Decimal(2),new Decimal(4),new Decimal(10),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity)] // Infinity mean this is non-repeatable upgrade
 
 let deltaTime;
 const calculate = window.setInterval(() => {
@@ -102,7 +102,7 @@ function updateText() {
   document.getElementById("factoryEnergy").innerHTML = "You have " + formate(game.factoryEnergy, 3) + " Factory Energy, Multiply all Miner damage by " + formate(getFactoryEnergyEff(), 3)
   document.getElementById("factoryEnergyPerSecond").innerHTML = "You are getting " + formate(getFactoryEnergyPerSecond(), 3) + " Factory Energy per second (based on Miners),"
   document.getElementById("factoryEnergyCap").innerHTML = "but will capped at " + formate(getFactoryEnergyCap(), 3) + " Factory Energy (based on Cursors)"
-  for (let i=1; i<5; i++) {
+  for (let i=1; i<7; i++) {
     document.getElementById("factoryUpg" + i + "Eff").innerHTML = formate(getFactoryUpgEff(i), 2)
     if (i > 3.5) {
       document.getElementById("factoryUpg" + i + "Level").innerHTML = (game.factoryUpgrade[i].gte(0.5) ? "Purchased" : "Not Purchased")
