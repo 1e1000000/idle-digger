@@ -46,6 +46,7 @@ function getTotalMiners() {
 function getBoughtBoostMulti() {
   let ret = new Decimal(2)
   if (game.factoryUpgrade[8].gte(0.5)) ret = ret.add(getFactoryUpgEff(8))
+  return ret
 }
 
 function getHealthExp() {
