@@ -27,7 +27,7 @@ Tab(game.mainTab)
 
 const minerBaseEff = [new Decimal(0.1),new Decimal(2),new Decimal(56),new Decimal(0)]; // when you buy 1 Miner, the effect
 const minerReq = [new Decimal(49.999),new Decimal(149.999),new Decimal(249.999),new Decimal(1.79769313486231e308)] // first one is Miner 0, require cursor amount
-const milestoneReq = [null,new Decimal(49.999),new Decimal(99.999),new Decimal(149.999),new Decimal(199.999),new Decimal(249.999),new Decimal(299.999),new Decimal(Infinity)] // require cursor
+const milestoneReq = [null,new Decimal(49.999),new Decimal(99.999),new Decimal(149.999),new Decimal(199.999),new Decimal(249.999),new Decimal(299.999),new Decimal(399.999),new Decimal(499.999),new Decimal(599.999)] // require cursor
 const factoryUpgradeInitCost = [null,new Decimal(1),new Decimal(6),new Decimal(Infinity),new Decimal(6.4),new Decimal(45),new Decimal(Infinity),new Decimal(640),new Decimal(10000),new Decimal(Infinity)] // Infinity mean not completed yet
 const factoryUpgradeCostScaling = [null,new Decimal(2),new Decimal(4),new Decimal(10),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity)] // Infinity mean this is non-repeatable upgrade
 
@@ -119,7 +119,7 @@ function updateText() {
   }
   document.getElementById("notation").innerHTML = "Notation: " + (game.notation == 0 ? "Scientific " : "Standard I" + (game.notation >= 2 ? (game.notation >= 3 ? "II " : "I ") : " ")) + "(Scientific Notation start at 1e" + (3 * 10 ** game.notation + 3) + ")"
   for (let i=1; i<10; i++) {
-    document.getElementById("milestone" + i + "achieve").innerHTML = (game.cursor.amount[0].gte(milestoneReq[i]) ? "(Achieved) " : "(" + game.cursor.amount[0].div(milestoneReq[i]).mul(100) + "% done)" )
+    document.getElementById("milestone" + i + "achieve").innerHTML = (game.cursor.amount[0].gte(milestoneReq[i]) ? "(Achieved) " : "(" + formate(game.cursor.amount[0].div(milestoneReq[i]).mul(100)) + "% done)" )
   }
   document.getElementById("milestone2effect").innerHTML = formate((game.cursor.amount[0].gte(99.999) ? getTotalMinerDamage().div(100).mul(getMilestone7Eff()) : new Decimal(0)), 2)
   document.getElementById("milestone4effect").innerHTML = formate(game.cursor.amount[0].gte(199.999) ? getTotalMiners() : new Decimal(0))
