@@ -82,6 +82,6 @@ function getFactoryEnergyEff() {
 }
 
 function getMilestone7Eff() {
-  if (game.cursor.amount.gte(399.999)) return new Decimal(10).add(game.cursor.bought[0]).log10()
+  if (game.cursor.amount[0].gte(399.999)) return new Decimal(10).add(game.cursor.bought[0]).log10()
   else return new Decimal(1)
 }
