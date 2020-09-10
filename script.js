@@ -28,7 +28,7 @@ Tab(game.mainTab)
 const minerBaseEff = [new Decimal(0.1),new Decimal(2),new Decimal(56),new Decimal(0)]; // when you buy 1 Miner, the effect
 const minerReq = [new Decimal(49.999),new Decimal(149.999),new Decimal(249.999),new Decimal(1.79769313486231e308)] // first one is Miner 0, require cursor amount
 const milestoneReq = [null,new Decimal(49.999),new Decimal(99.999),new Decimal(149.999),new Decimal(199.999),new Decimal(249.999),new Decimal(299.999),new Decimal(Infinity)] // require cursor
-const factoryUpgradeInitCost = [null,new Decimal(1),new Decimal(6),new Decimal(Infinity),new Decimal(6.5),new Decimal(50),new Decimal(Infinity)] // Infinity mean not completed yet
+const factoryUpgradeInitCost = [null,new Decimal(1),new Decimal(6),new Decimal(Infinity),new Decimal(6.4),new Decimal(50),new Decimal(Infinity)] // Infinity mean not completed yet
 const factoryUpgradeCostScaling = [null,new Decimal(2),new Decimal(4),new Decimal(10),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity)] // Infinity mean this is non-repeatable upgrade
 
 let deltaTime;
