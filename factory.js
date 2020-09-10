@@ -14,10 +14,13 @@ function getFactoryUpgEff(id) {
   if (id == 1) {
     return new Decimal(1.1).pow(game.factoryUpgrade[id])
   } else if (id == 2) {
-    return new Decimal(1).add(game.factoryUpgrade[id]).root(3)
+    let ret = new Decimal(1).add(game.factoryUpgrade[id]).root(3)
+    if (ret.gte(2)) ret = ret.mul(2).sqrt()
   } else if (id == 3) {
     return new Decimal(0)
   } else if (id == 4) {
     return game.cursor.bought[0].div(100).mul(game.cursor.amount[0].div(3).log10())
+  } else if (id == 5) {
+    return new Decimal(10).add(game.coins).log10()
   } else return new Decimal(0)
 }
