@@ -46,7 +46,7 @@ function maxCursor(generation) {
 
 function getCursorDamage() {
   let ret = game.cursor.amount[0].mul(getCursorPower(0)).add(1).div(100)
-  if (game.cursor.amount[0].gte(99.999)) ret = ret.add(getTotalMinerDamage().div(100))
+  if (game.cursor.amount[0].gte(99.999)) ret = ret.add(getTotalMinerDamage().div(100).mul(getMilestone7Eff()))
   return ret
 }
 
