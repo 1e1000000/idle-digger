@@ -26,7 +26,7 @@ load();
 Tab(game.mainTab)
 
 const minerBaseEff = [new Decimal(0.1),new Decimal(2),new Decimal(56),new Decimal(0)]; // when you buy 1 Miner, the effect
-const minerReq = [new Decimal(49.999),new Decimal(149.999),new Decimal(249.999),new Decimal(1.79769313486231e308)] // first one is Miner 0, require cursor amount
+const minerReq = [new Decimal(49.999),new Decimal(149.999),new Decimal(249.999),new Decimal(499.999)] // first one is Miner 0, require cursor amount
 const milestoneReq = [null,new Decimal(49.999),new Decimal(99.999),new Decimal(149.999),new Decimal(199.999),new Decimal(249.999),new Decimal(299.999),new Decimal(399.999),new Decimal(499.999),new Decimal(599.999)] // require cursor
 const factoryUpgradeInitCost = [null,new Decimal(1),new Decimal(6),new Decimal(Infinity),new Decimal(6.4),new Decimal(45),new Decimal(Infinity),new Decimal(640),new Decimal(10000),new Decimal(Infinity)] // Infinity mean not completed yet
 const factoryUpgradeCostScaling = [null,new Decimal(2),new Decimal(4),new Decimal(10),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity)] // Infinity mean this is non-repeatable upgrade
@@ -98,11 +98,11 @@ function updateText() {
     document.getElementById("miner" + i + "Power").innerHTML = "Power: "+ formate(getMinerPower(i),2) +"x"
     document.getElementById("miner" + i + "Cost").innerHTML = "Cost: " + formate(getMinerCost(i, game.miner.bought[i]),2)
   }
-  document.getElementById("nextMinerReq").innerHTML = "Get " + formate(
+  document.getElementById("nextMinerReq").innerHTML = (game.cursor.amount[0].lt(499.999) ? "Get " + formate(
     game.cursor.amount[0].lt(49.999) ? new Decimal(50) : 
     (game.cursor.amount[0].lt(149.999) ? new Decimal(150) : 
-    (game.cursor.amount[0].lt(249.999) ? new Decimal(250) : new Decimal(1.79769313486231e308)))) + 
-    " Cursors to Unlock new Miner"
+    (game.cursor.amount[0].lt(249.999) ? new Decimal(250) : new Decimal(500)))) + 
+    " Cursors to Unlock new Miner" : "You have unlocked all Miners!")
   document.getElementById("damagePerSecond").style.display = (getTotalMinerDamage().gt(0) ? "block" : "none")
   document.getElementById("factoryEnergy").innerHTML = "You have " + formate(game.factoryEnergy, 3) + " Factory Energy, Multiply all Miner damage by " + formate(getFactoryEnergyEff(), 3)
   document.getElementById("factoryEnergyPerSecond").innerHTML = "You are getting " + formate(getFactoryEnergyPerSecond(), 3) + " Factory Energy per second (based on Miners),"
