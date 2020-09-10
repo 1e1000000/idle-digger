@@ -11,6 +11,7 @@ function getHealth(ret) { // ret: depth
 function getCoinPerSecond() {
   let ret = new Decimal(2).pow(game.depth.root(3)).sub(1)
   if (game.cursor.amount[0].gte(249.999)) ret = ret.mul(10)
+  if (game.factoryUpgrade[7].gte(0.5)) ret = ret.mul(getFactoryUpgEff(7))
   return ret
 }
 
@@ -42,6 +43,11 @@ function getTotalMiners() {
   return ret
 }
 
+function getBoughtBoost() {
+  let ret = new Decimal(2)
+  if (game.factoryUpgrade[8].gte(0.5)) ret = ret.add(getFactoryUpgEff(8))
+}
+
 function getHealthExp() {
   return new Decimal(1)
 }
@@ -63,7 +69,7 @@ function getFactoryEnergyPerSecond() {
 
 function getFactoryEnergyCap() {
   let ret = game.cursor.bought[0].div(100).mul(game.cursor.amount[0].div(3).log10())
-  if (game.factoryUpgrade[4].gt(0.5) && ret.gte(1)) ret = ret.pow(2)
+  if (game.factoryUpgrade[4].gt(0.5) && ret.gte(1)) ret = ret.pow(2) // if base cap is below 1 will make the cap reduce
   if (game.factoryUpgrade[5].gt(0.5)) ret = ret.mul(new Decimal(10).add(game.coins).log10())
   return ret
 }
