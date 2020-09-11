@@ -65,6 +65,7 @@ function getFactoryEnergyPerSecond() {
     ret = new Decimal(1).add(game.miner.bought[2]).log10()
     ret = ret.pow(new Decimal(1).add(game.miner.bought[3]).log10().add(1))
     ret = ret.mul(getFactoryUpgEff(1))
+    if (game.factoryUpgrade[6].gt(0.5)) ret = ret.mul(getFactoryUpgEff(6))
     ret = ret.div(100)
   }
   return ret
@@ -74,6 +75,7 @@ function getFactoryEnergyCap() {
   let ret = game.cursor.bought[0].div(100).mul(game.cursor.amount[0].div(3).log10())
   if (game.factoryUpgrade[4].gt(0.5) && ret.gte(1)) ret = ret.pow(2) // if base cap is below 1 will make the cap reduce
   if (game.factoryUpgrade[5].gt(0.5)) ret = ret.mul(new Decimal(10).add(game.coins).log10())
+  ret = ret.mul(getFactoryUpgEff(3))
   return ret
 }
 
