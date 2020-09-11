@@ -61,7 +61,7 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   game.factoryEnergy = (game.factoryEnergy).add(getFactoryEnergyPerSecond().div(1000).times(ms));
   if (game.factoryEnergy.gt(getFactoryEnergyCap())) game.factoryEnergy = getFactoryEnergyCap();
   for (let i=0; i<10; i++) {
-    game.cursor.amount[i] = game.cursor.amount[i].add(game.cursor.amount[i+1])
+    game.cursor.amount[i] = game.cursor.amount[i].add(game.cursor.amount[i+1].div(1000).times(ms))
   }
   updateDisplay()
   updateText()
