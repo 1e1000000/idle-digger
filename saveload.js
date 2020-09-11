@@ -109,28 +109,28 @@ function importSave(text) {
 }
 
 function reset() { // now value
-  game = {
-    depth: new Decimal(0),
-    bestDepth: new Decimal(0),
-    coins: new Decimal(0),
-    totalCoins: new Decimal(0),
-    cursor: {
-      amount: [new Decimal(0)], // first one is x^0, second is derivative x^1, etc.
-      bought: [new Decimal(0)],
-    },
-    clickCoolDown: 0, // millisecond
-    miner: {
-      bought: [new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0)],
-    },
-    dealed: new Decimal(0),
-    factoryEnergy: new Decimal(0),
-    factoryUpgrade: [null, new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0)],
-    lastTick: Date.now(),
-    totalPlayed: 0, // millisecond
-    mainTab: 1,
-    // option
-    maxBulk: 1000,
-    notation: 0,
-    version: 0,
-  };
+game = {
+  depth: new Decimal(0),
+  bestDepth: new Decimal(0),
+  coins: new Decimal(0),
+  totalCoins: new Decimal(0),
+  cursor: {
+    amount: [new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0)], // first one is x^0, second is x^1, etc.
+    bought: [new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0)],
+  },
+  clickCoolDown: 0, // millisecond
+  miner: {
+    bought: [new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0)],
+  },
+  dealed: new Decimal(0),
+  factoryEnergy: new Decimal(0),
+  factoryUpgrade: [null, new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0)],
+  lastTick: Date.now(),
+  totalPlayed: 0, // millisecond
+  mainTab: 1,
+  // option
+  maxBulk: 1000,
+  notation: 0,
+  version: 0,
+};
 }
