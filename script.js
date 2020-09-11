@@ -98,7 +98,7 @@ function updateText() {
     document.getElementById("cursor" + i + "Power").innerHTML = "Power: " + formate(getCursorPower(i),2) + "x"
     document.getElementById("cursor" + i + "Cost").innerHTML = "Cost: " + formate(getCursorCost(i, game.cursor.bought[i]),2)
   }
-  for (let i=0; i<4; i++) {
+  for (let i=0; i<10; i++) {
     document.getElementById("miner" + i + "Amount").innerHTML = (game.miner.bought[i].gte(999.999) ? (game.miner.bought[i].gte(9999.999) ? (game.miner.bought[i].gte(99999.999) ? "Hyper " : "Superscaled ") : "Scaled ") : "") + "Miner " + i + ": " + formate(game.miner.bought[i],0)
     document.getElementById("miner" + i + "Power").innerHTML = "Power: "+ formate(getMinerPower(i),2) +"x"
     document.getElementById("miner" + i + "Cost").innerHTML = "Cost: " + formate(getMinerCost(i, game.miner.bought[i]),2)
