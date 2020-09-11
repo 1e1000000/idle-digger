@@ -4,12 +4,12 @@ game = {
   coins: new Decimal(0),
   totalCoins: new Decimal(0),
   cursor: {
-    amount: [new Decimal(0)], // first one is x^0, second is derivative x^1, etc.
-    bought: [new Decimal(0)],
+    amount: [new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0)], // first one is x^0, second is x^1, etc.
+    bought: [new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0)],
   },
   clickCoolDown: 0, // millisecond
   miner: {
-    bought: [new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0)],
+    bought: [new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0)],
   },
   dealed: new Decimal(0),
   factoryEnergy: new Decimal(0),
@@ -25,8 +25,9 @@ game = {
 load();
 Tab(game.mainTab)
 
-const minerBaseEff = [new Decimal(0.1),new Decimal(2),new Decimal(56),new Decimal(11000)]; // when you buy 1 Miner, the effect
-const minerReq = [new Decimal(49.999),new Decimal(149.999),new Decimal(249.999),new Decimal(499.999)] // first one is Miner 0, require cursor amount
+const cursorName = ["", "Velocity ", "Acceleration ", "Jerk ", "Snap ", "Crackle ", "Pop ", "Lock ", "Drop ", "Shot ", "Put "]
+const minerBaseEff = [new Decimal(0.1),new Decimal(2),new Decimal(56),new Decimal(11000),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0)]; // when you buy 1 Miner, the effect
+const minerReq = [new Decimal(49.999),new Decimal(149.999),new Decimal(249.999),new Decimal(499.999),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity)] // first one is Miner 0, require cursor amount
 const milestoneReq = [null,new Decimal(49.999),new Decimal(99.999),new Decimal(149.999),new Decimal(199.999),new Decimal(249.999),new Decimal(299.999),new Decimal(399.999),new Decimal(499.999),new Decimal(599.999)] // require cursor
 const factoryUpgradeInitCost = [null,new Decimal(1),new Decimal(6),new Decimal(2000),new Decimal(6.4),new Decimal(45),new Decimal(100000),new Decimal(640),new Decimal(1800),new Decimal(Infinity)] // Infinity mean not completed yet
 const factoryUpgradeCostScaling = [null,new Decimal(2),new Decimal(4),new Decimal(8),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity)] // Infinity mean this is non-repeatable upgrade
@@ -59,6 +60,9 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
   if (game.clickCoolDown > 0) game.clickCoolDown -= ms;
   game.factoryEnergy = (game.factoryEnergy).add(getFactoryEnergyPerSecond().div(1000).times(ms));
   if (game.factoryEnergy.gt(getFactoryEnergyCap())) game.factoryEnergy = getFactoryEnergyCap();
+  for (let i=0; i<10; i++) {
+    game.cursor.amount[i] = game.cursor.amount[i].add(game.cursor.amount[i+1])
+  }
   updateDisplay()
   updateText()
 }
@@ -89,7 +93,7 @@ function updateText() {
   document.getElementById("damagePerSecond").innerHTML = "You are dealing " + formate(getTotalMinerDamage(),2) + " per second"
   document.getElementById("maxBulk").innerHTML = "Max Bulk buy: " + game.maxBulk
   for (let i=0; i<1; i++) {
-    document.getElementById("cursor" + i + "Amount").innerHTML = (game.cursor.bought[i].gte(1000) ? (game.cursor.bought[i].gte(10000) ? "Superscaled " : "Scaled ") : "") + "Cursor: " + formate(game.cursor.amount[i],0) + " (" + formate(game.cursor.bought[i],0) + " Bought)"
+    document.getElementById("cursor" + i + "Amount").innerHTML = (game.cursor.bought[i].gte(1000) ? (game.cursor.bought[i].gte(10000) ? "Superscaled " : "Scaled ") : "") + cursorName[i] + "Cursor: " + formate(game.cursor.amount[i],0) + " (" + formate(game.cursor.bought[i],0) + " Bought)"
     document.getElementById("cursor" + i + "Power").innerHTML = "Power: " + formate(getCursorPower(i),2) + "x"
     document.getElementById("cursor" + i + "Cost").innerHTML = "Cost: " + formate(getCursorCost(i, game.cursor.bought[i]),2)
   }
