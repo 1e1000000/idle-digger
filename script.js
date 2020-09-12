@@ -97,6 +97,7 @@ function updateText() {
   document.getElementById("coins").innerHTML = "You have " + formate(game.coins,2) + " coins (+" + formate(getCoinPerSecond(),2) + "/s)"
   document.getElementById("damage").innerHTML = "Deal Damage by " + formate(getCursorDamage(),2)
   document.getElementById("damagePerSecond").innerHTML = "You are dealing " + formate(getTotalMinerDamage(),2) + " per second"
+  document.getElementById("damageDivider").innerHTML = "Due to you have digged very far, your all damage has divided by " + formate(getDamageDivider())
   document.getElementById("maxBulk").innerHTML = "Max Bulk buy: " + game.maxBulk
   for (let i=0; i<11; i++) {
     document.getElementById("cursor" + i + "Amount").innerHTML = (game.cursor.bought[i].gte(999.999) ? (game.cursor.bought[i].gte(9999.999) ? (game.cursor.bought[i].gte(99999.999) ? "Hyper " : "Superscaled ") : "Scaled ") : "") + cursorName[i] + "Cursor: " + formate(game.cursor.amount[i],0) + " (" + formate(game.cursor.bought[i],0) + " Bought)"
