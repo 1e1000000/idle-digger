@@ -49,10 +49,6 @@ function getBoughtBoostMulti() {
   return ret
 }
 
-function getHealthExp() {
-  return new Decimal(1)
-}
-
 function isFactoryUnlocked() {
   if (game.cursor.amount[0].gte(299.999)) {
     return true
