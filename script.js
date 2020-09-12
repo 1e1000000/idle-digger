@@ -92,7 +92,7 @@ function updateDisplay() {
 }
 
 function updateText() {
-  document.getElementById("depth").innerHTML = "Your depth is currently " + formate(game.depth,0) + " meter"
+  document.getElementById("depth").innerHTML = "Your " + (game.depth.gte(49999.999) ? "Scaled " : "") + "Depth is currently " + formate(game.depth,0) + " meter"
   document.getElementById("health").innerHTML = "Your health on this block is currently " + formate(getHealth(game.depth).sub(game.dealed),2) + "/" + formate(getHealth(game.depth).sub(getHealth(game.depth.sub(1))),2)
   document.getElementById("coins").innerHTML = "You have " + formate(game.coins,2) + " coins (+" + formate(getCoinPerSecond(),2) + "/s)"
   document.getElementById("damage").innerHTML = "Deal Damage by " + formate(getCursorDamage(),2)
