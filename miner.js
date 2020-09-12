@@ -44,7 +44,8 @@ function getTotalMinerDamage() {
     ret = ret.add(game.miner.bought[i].mul(minerBaseEff[i]).mul(getMinerPower(i)))
   };
   ret = ret.mul(getMilestone4Eff());
-  if (isFactoryUnlocked()) ret = ret.mul(getFactoryEnergyEff())
+  if (isFactoryUnlocked()) ret = ret.mul(getFactoryEnergyEff());
+  ret = ret.div(getDamageDivider())
   return ret
 }
 
