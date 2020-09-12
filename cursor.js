@@ -57,6 +57,7 @@ function maxCursor(generation) {
 
 function getCursorDamage() {
   let ret = game.cursor.amount[0].mul(getCursorPower(0)).add(1).div(100)
+  ret = ret.div(getDamageDivider())
   ret = ret.add(getMilestone2Eff())
   return ret
 }
