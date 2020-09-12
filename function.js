@@ -85,3 +85,20 @@ function getMilestone7Eff() {
   if (game.cursor.amount[0].gte(399.999)) return new Decimal(10).add(game.cursor.bought[0]).log10()
   else return new Decimal(1)
 }
+
+function getMilestone2Eff() {
+  if (game.cursor.amount[0].gte(99.999)) return getTotalMinerDamage().div(100).mul(getMilestone7Eff())
+  else return new Decimal(0)
+}
+
+function getMilestone9Eff() {
+  if (game.cursor.amount[0].gte(599.999)) return new Decimal(10).add(game.depth).log10()
+  else return new Decimal(1)
+}
+
+function getMilestone4Eff() {
+  let ret = new Decimal(1)
+  if (game.cursor.amount[0].gte(199.999)) ret = ret.add(getTotalMiners().div(100).mul(getMilestone9Eff()))
+  if (game.cursor.amount[0].gte(599.999)) ret = ret.pow(2)
+  return ret
+}
