@@ -92,7 +92,7 @@ function getMilestone2Eff() {
 }
 
 function getMilestone9Eff() {
-  if (game.cursor.amount[0].gte(599.999)) return new Decimal(10).add(game.depth).log10()
+  if (game.cursor.amount[0].gte(599.999)) return new Decimal(10).add(game.depth).log10().sqrt()
   else return new Decimal(1)
 }
 
