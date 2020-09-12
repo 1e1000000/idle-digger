@@ -69,7 +69,8 @@ function loop(unadjusted, off = 0) { //the begin of gameloop
 }
 
 function updateDisplay() {
-  document.getElementById("coins").style.display = (game.depth.gte(1) ? "block" : "none")
+  document.getElementById("coins").style.display = (game.depth.gte(0.999) ? "block" : "none")
+  document.getElementById("damageDivider").style.display = (game.depth.gte(49999.999) ? "block" : "none")
   for (let i=0; i<11; i++) {
     document.getElementById("cursorBought" + i).style.display = (game.depth.gte(cursorReq[i]) ? "block" : "none")
     document.getElementById("maxCursorBought" + i).style.display = (game.depth.gte(cursorReq[i]) ? "block" : "none")
