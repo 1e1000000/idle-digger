@@ -17,6 +17,23 @@
   background: #DFDFDF
 }
 
+ .subtabButton {
+  font-family: roboto;
+  color: #000000;
+  background: #FFFFFF;
+  border-radius: 5px;
+  border-color: #000000;
+  border-weight: 0px;
+  cursor: pointer;
+  transition-duration: 0.1s;
+  font-size: 11pt;
+}
+
+.subtabButton:hover {
+  background: #DFDFDF
+}
+
+
 .saveButton {
   font-family: roboto;
   color: #000000;
