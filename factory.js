@@ -5,12 +5,8 @@ function getFactoryUpgradeCost(id,amount) {
 
 function buyFactoryUpgrade(id) {
   if (game.factoryEnergy.gte(getFactoryUpgradeCost(id, game.factoryUpgrade[id]))) {
-    if (id == 9) {
-      confirm("Coming Soon!")
-    } else {
-      game.factoryEnergy = game.factoryEnergy.sub(getFactoryUpgradeCost(id, game.factoryUpgrade[id]))
-      game.factoryUpgrade[id] = game.factoryUpgrade[id].add(1)
-    }
+    game.factoryEnergy = game.factoryEnergy.sub(getFactoryUpgradeCost(id, game.factoryUpgrade[id]))
+    game.factoryUpgrade[id] = game.factoryUpgrade[id].add(1)
   }
 }
 
@@ -33,7 +29,5 @@ function getFactoryUpgEff(id) {
     return new Decimal(1).add(game.factoryEnergy).sqrt()
   } else if (id == 8) {
     return new Decimal(1)
-  } else if (id == 9) {
-    return new Decimal(0)
   } else return new Decimal(0)
 }
