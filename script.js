@@ -95,12 +95,12 @@ function updateDisplay() {
 }
 
 function updateText() {
-  document.getElementById("depth").innerHTML = "Your " + (game.depth.gte(49999.999) ? "Scaled " : "") + "Depth is currently " + formate(game.depth,0) + " meter"
+  document.getElementById("depth").innerHTML = "Your " + (game.depth.gte(49999.999) ? "Scaled " : "") + "Depth is currently " + formate(game.depth,0) + " meters"
   document.getElementById("health").innerHTML = "Your health on this block is currently " + formate(getHealth(game.depth).sub(game.dealed),2) + "/" + formate(getHealth(game.depth).sub(getHealth(game.depth.sub(1))),2)
-  document.getElementById("coins").innerHTML = "You have " + formate(game.coins,2) + " coins (+" + formate(getCoinPerSecond(),2) + "/s)"
+  document.getElementById("coins").innerHTML = "You have " + formate(game.coins,2) + " coins (" + formate(getCoinPerSecond(),2) + "/s)"
   document.getElementById("damage").innerHTML = "Deal Damage by " + formate(getCursorDamage(),2)
   document.getElementById("damagePerSecond").innerHTML = "You are dealing " + formate(getTotalMinerDamage(),2) + " per second"
-  document.getElementById("damageDivider").innerHTML = "Due to you have digged very far, your all damage has divided by " + formate(getDamageDivider())
+  document.getElementById("damageDivider").innerHTML = "Because you have digged very far, all your damage has divided by " + formate(getDamageDivider())
   document.getElementById("maxBulk").innerHTML = "Max Bulk buy: " + game.maxBulk
   for (let i=0; i<11; i++) {
     document.getElementById("cursor" + i + "Amount").innerHTML = (game.cursor.bought[i].gte(999.999) ? (game.cursor.bought[i].gte(9999.999) ? (game.cursor.bought[i].gte(99999.999) ? "Hyper " : "Superscaled ") : "Scaled ") : "") + cursorName[i] + "Cursor: " + formate(game.cursor.amount[i],0) + " (" + formate(game.cursor.bought[i],0) + " Bought)"
@@ -118,9 +118,9 @@ function updateText() {
     (game.cursor.amount[0].lt(249.999) ? new Decimal(250) : new Decimal(500)))) + 
     " Cursors to Unlock new Miner" : "You have unlocked all Miners!")
   document.getElementById("damagePerSecond").style.display = (getTotalMinerDamage().gt(0) ? "block" : "none")
-  document.getElementById("factoryEnergy").innerHTML = "You have " + formate(game.factoryEnergy, 3) + " Factory Energy, Multiply all Miner damage by " + formate(getFactoryEnergyEff(), 3)
+  document.getElementById("factoryEnergy").innerHTML = "You have " + formate(game.factoryEnergy, 3) + " Factory Energy, Multiplying all Miner damage by " + formate(getFactoryEnergyEff(), 3)
   document.getElementById("factoryEnergyPerSecond").innerHTML = "You are getting " + formate(getFactoryEnergyPerSecond(), 3) + " Factory Energy per second (based on Miners),"
-  document.getElementById("factoryEnergyCap").innerHTML = "but will capped at " + formate(getFactoryEnergyCap(), 3) + " Factory Energy (based on Cursors)"
+  document.getElementById("factoryEnergyCap").innerHTML = "but will be capped at " + formate(getFactoryEnergyCap(), 3) + " Factory Energy (based on Cursors)"
   for (let i=1; i<10; i++) {
     if (i < 8.5) document.getElementById("factoryUpg" + i + "Eff").innerHTML = formate(getFactoryUpgEff(i), 2) + ((i == 2 && getFactoryUpgEff(i).gt(2)) ? " (softcapped)" : "")
     if (i > 3.5) {
