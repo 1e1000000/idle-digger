@@ -24,7 +24,8 @@ game = {
   version: 0,
 };
 load();
-Tab(game.mainTab)
+Tab(game.mainTab);
+subTab1(game.subTab1)
 
 const cursorName = ["", "Velocity ", "Acceleration ", "Jerk ", "Snap ", "Crackle ", "Pop ", "Lock ", "Drop ", "Shot ", "Put "]
 const cursorReq = [new Decimal(-1),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity)] // first one is x^0 Cursor, require your depth, non-x^0 also require a reset
