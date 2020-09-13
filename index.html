@@ -21,417 +21,422 @@
 <button onclick="damage()" class="normalButton" id="damage" style="font-family: roboto">Deal Damage by 0.01</button>
 <p></p>
 <div>
-  <button onclick="Tab(1)" class="tabButton" id="tab1">Cursor</button>
-  <button onclick="Tab(2)" class="tabButton" id="tab2">Miner</button>
-  <button onclick="Tab(3)" class="tabButton" id="tab3">Factory</button>
-  <button onclick="Tab(4)" class="tabButton" id="tab4">Milestones</button>
-  <button onclick="Tab(5)" class="tabButton" id="tab5">Options</button>
-  <button onclick="Tab(6)" class="tabButton" id="tab6">Statistics</button>
+  <button onclick="Tab(1)" class="tabButton" id="tab1">Main</button>
+  <button onclick="Tab(2)" class="tabButton" id="tab2">Milestone</button>
+  <button onclick="Tab(3)" class="tabButton" id="tab3">Options</button>
+  <button onclick="Tab(4)" class="tabButton" id="tab4">Statistics</button>
+  <button onclick="Tab(5)" class="tabButton" id="tab5">Prestige</button>
 </div>
 <p></p>
-<button onclick="toggleMaxBulk()" class="normalButton" id="maxBulk" style="font-family: roboto">Max Bulk buy: 1</button>
-<p></p>
   <div id="Tab1">
-    <table>
-      <!-- Cursor -->
-      <tr>
-        <td>
-          <button onclick="buyCursor(0)" class="boughtButton" id="cursorBought0">
-            <p id="cursor0Amount">Cursor: 0 (0 Bought)</p>
-            <p id="cursor0Power">Power: 1.00x</p>
-            <p id="cursor0Cost">Cost: 10.00</p>
-          </button>
+    <div>
+      <button onclick="subTab1(1)" class="subtabButton" id="subtab1_1">Cursor</button>
+      <button onclick="subTab1(2)" class="subtabButton" id="subtab1_2">Miner</button>
+      <button onclick="subTab1(3)" class="subtabButton" id="subtab1_3">Factory</button>
+    </div><br>
+    <button onclick="toggleMaxBulk()" class="normalButton" id="maxBulk" style="font-family: roboto">Max Bulk buy: 1</button><br>
+    <div id="subTab1_1">
+      <table>
+        <!-- Cursor -->
+        <tr>
+          <td>
+            <button onclick="buyCursor(0)" class="boughtButton" id="cursorBought0">
+              <p id="cursor0Amount">Cursor: 0 (0 Bought)</p>
+              <p id="cursor0Power">Power: 1.00x</p>
+              <p id="cursor0Cost">Cost: 10.00</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxCursor(0)" class="maxButton" id="maxCursorBought0">
+              Max<br>Cursor
+            </button>
+          </td>
+        </tr>
+        <!-- Velocity Cursor -->
+        <tr>
+          <td>
+            <button onclick="buyCursor(1)" class="boughtButton" id="cursorBought1">
+              <p id="cursor1Amount">Velocity Cursor: 0 (0 Bought)</p>
+              <p id="cursor1Power">Power: 1.00x</p>
+              <p id="cursor1Cost">Cost: 1.00e20</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxCursor(1)" class="maxButton" id="maxCursorBought1">
+              Max<br>Velocity<br>Cursor
+            </button>
+          </td>
+        </tr>
+        <!-- Acceleration Cursor -->
+        <tr>
+          <td>
+            <button onclick="buyCursor(2)" class="boughtButton" id="cursorBought2">
+              <p id="cursor2Amount">Acceleration Cursor: 0 (0 Bought)</p>
+              <p id="cursor2Power">Power: 1.00x</p>
+              <p id="cursor2Cost">Cost: 1.00e32</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxCursor(2)" class="maxButton" id="maxCursorBought2">
+              Max<br>Acceleration<br>Cursor
+            </button>
+          </td>
+        </tr>
+        <!-- Jerk Cursor -->
+        <tr>
+          <td>
+            <button onclick="buyCursor(3)" class="boughtButton" id="cursorBought3">
+              <p id="cursor3Amount">Jerk Cursor: 0 (0 Bought)</p>
+              <p id="cursor3Power">Power: 1.00x</p>
+              <p id="cursor3Cost">Cost: 1.00e52</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxCursor(3)" class="maxButton" id="maxCursorBought3">
+              Max<br>Jerk<br>Cursor
+            </button>
+          </td>
+        </tr>
+        <!-- Snap Cursor -->
+        <tr>
+          <td>
+            <button onclick="buyCursor(4)" class="boughtButton" id="cursorBought4">
+              <p id="cursor4Amount">Snap Cursor: 0 (0 Bought)</p>
+              <p id="cursor4Power">Power: 1.00x</p>
+              <p id="cursor4Cost">Cost: 1.00e84</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxCursor(4)" class="maxButton" id="maxCursorBought4">
+              Max<br>Snap<br>Cursor
+            </button>
+          </td>
+        </tr>
+        <!-- Crackle Cursor -->
+        <tr>
+          <td>
+            <button onclick="buyCursor(5)" class="boughtButton" id="cursorBought5">
+              <p id="cursor5Amount">Crackle Cursor: 0 (0 Bought)</p>
+              <p id="cursor5Power">Power: 1.00x</p>
+              <p id="cursor5Cost">Cost: 1.00e136</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxCursor(5)" class="maxButton" id="maxCursorBought5">
+              Max<br>Crackle<br>Cursor
+            </button>
+          </td>
+        </tr>
+        <!-- Pop Cursor -->
+        <tr>
+          <td>
+            <button onclick="buyCursor(6)" class="boughtButton" id="cursorBought6">
+              <p id="cursor6Amount">Pop Cursor: 0 (0 Bought)</p>
+              <p id="cursor6Power">Power: 1.00x</p>
+              <p id="cursor6Cost">Cost: 1.00e220</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxCursor(6)" class="maxButton" id="maxCursorBought6">
+              Max<br>Pop<br>Cursor
+            </button>
         </td>
-        <td>
-          <button onclick="maxCursor(0)" class="maxButton" id="maxCursorBought0">
-            Max<br>Cursor
+        </tr>
+        <!-- Lock Cursor -->
+        <tr>
+          <td>
+            <button onclick="buyCursor(7)" class="boughtButton" id="cursorBought7">
+              <p id="cursor7Amount">Lock Cursor: 0 (0 Bought)</p>
+              <p id="cursor7Power">Power: 1.00x</p>
+              <p id="cursor7Cost">Cost: 1.00e356</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxCursor(7)" class="maxButton" id="maxCursorBought7">
+              Max<br>Lock<br>Cursor
+            </button>
+          </td>
+        </tr>
+        <!-- Drop Cursor -->
+        <tr>
+          <td>
+            <button onclick="buyCursor(8)" class="boughtButton" id="cursorBought8">
+              <p id="cursor8Amount">Drop Cursor: 0 (0 Bought)</p>
+              <p id="cursor8Power">Power: 1.00x</p>
+              <p id="cursor8Cost">Cost: 1.00e576</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxCursor(8)" class="maxButton" id="maxCursorBought8">
+              Max<br>Drop<br>Cursor
+            </button>
+          </td>
+        </tr>
+        <!-- Shot Cursor -->
+        <tr>
+          <td>
+            <button onclick="buyCursor(9)" class="boughtButton" id="cursorBought9">
+              <p id="cursor9Amount">Shot Cursor: 0 (0 Bought)</p>
+              <p id="cursor9Power">Power: 1.00x</p>
+              <p id="cursor9Cost">Cost: 1.00e932</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxCursor(9)" class="maxButton" id="maxCursorBought9">
+               Max<br>Shot<br>Cursor
+            </button>
+          </td>
+        </tr>
+        <!-- Put Cursor -->
+        <tr>
+          <td>
+            <button onclick="buyCursor(10)" class="boughtButton" id="cursorBought10">
+              <p id="cursor10Amount">Put Cursor: 0 (0 Bought)</p>
+              <p id="cursor10Power">Power: 1.00x</p>
+              <p id="cursor10Cost">Cost: 1.00e1508</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxCursor(10)" class="maxButton" id="maxCursorBought10">
+              Max<br>Put<br>Cursor
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="subTab1_2">
+      <p style="font-family: roboto" id="nextMinerReq">Get 50 Cursors to Unlock new Miner</p>
+      <table>
+        <!-- Miner 0 -->
+        <tr>
+          <td>
+            <button onclick="buyMiner(0)" class="boughtButton" id="minerBought0">
+              <p id="miner0Amount">Miner 0: 0 </p>
+              <p id="miner0Power">Power: 1.00x</p>
+              <p id="miner0Cost">Cost: 1000.00</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxMiner(0)" class="maxButton" id="maxMinerBought0">
+              Max<br>Miner 0
+            </button>
+          </td>
+        </tr>
+        <!-- Miner 1 -->
+        <tr>
+          <td>
+            <button onclick="buyMiner(1)" class="boughtButton" id="minerBought1">
+              <p id="miner1Amount">Miner 1: 0 </p>
+              <p id="miner1Power">Power: 1.00x</p>
+              <p id="miner1Cost">Cost: 100000.00</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxMiner(1)" class="maxButton" id="maxMinerBought1">
+              Max<br>Miner 1
+            </button>
+          </td>
+        </tr>
+        <!-- Miner 2 -->
+        <tr>
+          <td>
+            <button onclick="buyMiner(2)" class="boughtButton" id="minerBought2">
+              <p id="miner2Amount">Miner 2: 0 </p>
+              <p id="miner2Power">Power: 1.00x</p>
+              <p id="miner2Cost">Cost: 1.00e8</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxMiner(2)" class="maxButton" id="maxMinerBought2">
+               Max<br>Miner 2
+            </button>
+          </td>
+        </tr>
+        <!-- Miner 3 -->
+        <tr>
+          <td>
+            <button onclick="buyMiner(3)" class="boughtButton" id="minerBought3">
+              <p id="miner3Amount">Miner 3: 0 </p>
+              <p id="miner3Power">Power: 1.00x</p>
+              <p id="miner3Cost">Cost: 1.00e13</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxMiner(3)" class="maxButton" id="maxMinerBought3">
+              Max<br>Miner 3
+            </button>
+          </td>
+        </tr>
+        <!-- Miner 4 -->
+        <tr>
+          <td>
+            <button onclick="buyMiner(4)" class="boughtButton" id="minerBought4">
+              <p id="miner4Amount">Miner 4: 0 </p>
+              <p id="miner4Power">Power: 1.00x</p>
+              <p id="miner4Cost">Cost: 1.00e21</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxMiner(4)" class="maxButton" id="maxMinerBought4">
+              Max<br>Miner 4
+            </button>
+          </td>
+        </tr>
+        <!-- Miner 5 -->
+        <tr>
+          <td>
+            <button onclick="buyMiner(5)" class="boughtButton" id="minerBought5">
+              <p id="miner5Amount">Miner 5: 0 </p>
+              <p id="miner5Power">Power: 1.00x</p>
+              <p id="miner5Cost">Cost: 1.00e34</p>
           </button>
-        </td>
-      </tr>
-      <!-- Velocity Cursor -->
-      <tr>
-        <td>
-          <button onclick="buyCursor(1)" class="boughtButton" id="cursorBought1">
-            <p id="cursor1Amount">Velocity Cursor: 0 (0 Bought)</p>
-            <p id="cursor1Power">Power: 1.00x</p>
-            <p id="cursor1Cost">Cost: 1.00e20</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxCursor(1)" class="maxButton" id="maxCursorBought1">
-            Max<br>Velocity<br>Cursor
-          </button>
-        </td>
-      </tr>
-      <!-- Acceleration Cursor -->
-      <tr>
-        <td>
-          <button onclick="buyCursor(2)" class="boughtButton" id="cursorBought2">
-            <p id="cursor2Amount">Acceleration Cursor: 0 (0 Bought)</p>
-            <p id="cursor2Power">Power: 1.00x</p>
-            <p id="cursor2Cost">Cost: 1.00e32</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxCursor(2)" class="maxButton" id="maxCursorBought2">
-            Max<br>Acceleration<br>Cursor
-          </button>
-        </td>
-      </tr>
-      <!-- Jerk Cursor -->
-      <tr>
-        <td>
-          <button onclick="buyCursor(3)" class="boughtButton" id="cursorBought3">
-            <p id="cursor3Amount">Jerk Cursor: 0 (0 Bought)</p>
-            <p id="cursor3Power">Power: 1.00x</p>
-            <p id="cursor3Cost">Cost: 1.00e52</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxCursor(3)" class="maxButton" id="maxCursorBought3">
-            Max<br>Jerk<br>Cursor
-          </button>
-        </td>
-      </tr>
-      <!-- Snap Cursor -->
-      <tr>
-        <td>
-          <button onclick="buyCursor(4)" class="boughtButton" id="cursorBought4">
-            <p id="cursor4Amount">Snap Cursor: 0 (0 Bought)</p>
-            <p id="cursor4Power">Power: 1.00x</p>
-            <p id="cursor4Cost">Cost: 1.00e84</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxCursor(4)" class="maxButton" id="maxCursorBought4">
-            Max<br>Snap<br>Cursor
-          </button>
-        </td>
-      </tr>
-      <!-- Crackle Cursor -->
-      <tr>
-        <td>
-          <button onclick="buyCursor(5)" class="boughtButton" id="cursorBought5">
-            <p id="cursor5Amount">Crackle Cursor: 0 (0 Bought)</p>
-            <p id="cursor5Power">Power: 1.00x</p>
-            <p id="cursor5Cost">Cost: 1.00e136</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxCursor(5)" class="maxButton" id="maxCursorBought5">
-            Max<br>Crackle<br>Cursor
-          </button>
-        </td>
-      </tr>
-      <!-- Pop Cursor -->
-      <tr>
-        <td>
-          <button onclick="buyCursor(6)" class="boughtButton" id="cursorBought6">
-            <p id="cursor6Amount">Pop Cursor: 0 (0 Bought)</p>
-            <p id="cursor6Power">Power: 1.00x</p>
-            <p id="cursor6Cost">Cost: 1.00e220</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxCursor(6)" class="maxButton" id="maxCursorBought6">
-            Max<br>Pop<br>Cursor
-          </button>
-        </td>
-      </tr>
-      <!-- Lock Cursor -->
-      <tr>
-        <td>
-          <button onclick="buyCursor(7)" class="boughtButton" id="cursorBought7">
-            <p id="cursor7Amount">Lock Cursor: 0 (0 Bought)</p>
-            <p id="cursor7Power">Power: 1.00x</p>
-            <p id="cursor7Cost">Cost: 1.00e356</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxCursor(7)" class="maxButton" id="maxCursorBought7">
-            Max<br>Lock<br>Cursor
-          </button>
-        </td>
-      </tr>
-      <!-- Drop Cursor -->
-      <tr>
-        <td>
-          <button onclick="buyCursor(8)" class="boughtButton" id="cursorBought8">
-            <p id="cursor8Amount">Drop Cursor: 0 (0 Bought)</p>
-            <p id="cursor8Power">Power: 1.00x</p>
-            <p id="cursor8Cost">Cost: 1.00e576</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxCursor(8)" class="maxButton" id="maxCursorBought8">
-            Max<br>Drop<br>Cursor
-          </button>
-        </td>
-      </tr>
-      <!-- Shot Cursor -->
-      <tr>
-        <td>
-          <button onclick="buyCursor(9)" class="boughtButton" id="cursorBought9">
-            <p id="cursor9Amount">Shot Cursor: 0 (0 Bought)</p>
-            <p id="cursor9Power">Power: 1.00x</p>
-            <p id="cursor9Cost">Cost: 1.00e932</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxCursor(9)" class="maxButton" id="maxCursorBought9">
-            Max<br>Shot<br>Cursor
-          </button>
-        </td>
-      </tr>
-      <!-- Put Cursor -->
-      <tr>
-        <td>
-          <button onclick="buyCursor(10)" class="boughtButton" id="cursorBought10">
-            <p id="cursor10Amount">Put Cursor: 0 (0 Bought)</p>
-            <p id="cursor10Power">Power: 1.00x</p>
-            <p id="cursor10Cost">Cost: 1.00e1508</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxCursor(10)" class="maxButton" id="maxCursorBought10">
-            Max<br>Put<br>Cursor
-          </button>
-        </td>
-      </tr>
-    </table>
+          </td>
+          <td>
+            <button onclick="maxMiner(5)" class="maxButton" id="maxMinerBought5">
+              Max<br>Miner 5
+            </button>
+          </td>
+        </tr>
+        <!-- Miner 6 -->
+        <tr>
+          <td>
+            <button onclick="buyMiner(6)" class="boughtButton" id="minerBought6">
+              <p id="miner6Amount">Miner 6: 0 </p>
+              <p id="miner6Power">Power: 1.00x</p>
+              <p id="miner6Cost">Cost: 1.00e55</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxMiner(6)" class="maxButton" id="maxMinerBought6">
+              Max<br>Miner 6
+            </button>
+          </td>
+        </tr>
+        <!-- Miner 7 -->
+        <tr>
+          <td>
+            <button onclick="buyMiner(7)" class="boughtButton" id="minerBought7">
+              <p id="miner7Amount">Miner 7: 0 </p>
+              <p id="miner7Power">Power: 1.00x</p>
+              <p id="miner7Cost">Cost: 1.00e89</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxMiner(7)" class="maxButton" id="maxMinerBought7">
+              Max<br>Miner 7
+            </button>
+          </td>
+        </tr>
+        <!-- Miner 8 -->
+        <tr>
+          <td>
+            <button onclick="buyMiner(8)" class="boughtButton" id="minerBought8">
+              <p id="miner8Amount">Miner 8: 0 </p>
+              <p id="miner8Power">Power: 1.00x</p>
+              <p id="miner8Cost">Cost: 1.00e144</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxMiner(8)" class="maxButton" id="maxMinerBought8">
+              Max<br>Miner 8
+            </button>
+          </td>
+        </tr>
+        <!-- Miner 9 -->
+        <tr>
+          <td>
+            <button onclick="buyMiner(9)" class="boughtButton" id="minerBought9">
+              <p id="miner9Amount">Miner 9: 0 </p>
+              <p id="miner9Power">Power: 1.00x</p>
+              <p id="miner9Cost">Cost: 1.00e233</p>
+            </button>
+          </td>
+          <td>
+            <button onclick="maxMiner(9)" class="maxButton" id="maxMinerBought9">
+              Max<br>Miner 9
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="subTab1_3">
+      <p style="font-family: roboto" id="factoryEnergy">You have 0.000 Factory Energy, Multiply all Miner damage by 1.000</p>
+      <p style="font-family: roboto" id="factoryEnergyPerSecond">You are getting 0.000 Factory Energy per second (based on Miners),</p>
+      <p style="font-family: roboto" id="factoryEnergyCap">but will capped at 0.000 Factory Energy (based on Cursors)</p>
+      <table>
+        <tr>
+          <td>
+            <button onclick="buyFactoryUpgrade(1)" class="upgradeButton" id="factoryUpgrade1">
+              <text>You gain Factory Energy 10% faster, currently: <span id="factoryUpg1Eff">1.00</span>x</text><br>
+              <text id="factoryUpg1Level">Level 0</text><br>
+              <text id="factoryUpg1Cost">Cost: 1.000</text>
+            </button>
+          </td>
+          <td>
+            <button onclick="buyFactoryUpgrade(2)" class="upgradeButton" id="factoryUpgrade2">
+              <text>Factory Energy boost is stronger, currently: ^<span id="factoryUpg2Eff">1.00</span></text><br>
+              <text id="factoryUpg2Level">Level 0</text><br>
+              <text id="factoryUpg2Cost">Cost: 6.000</text>
+            </button>
+          </td>
+          <td>
+            <button onclick="buyFactoryUpgrade(3)" class="upgradeButton" id="factoryUpgrade3">
+              <text>Multiply Factory Energy cap based on your Depth, currently: <span id="factoryUpg3Eff">1.00</span>x</text><br>
+              <text id="factoryUpg3Level">Level 0</text><br>
+              <text id="factoryUpg3Cost">Cost: 2000.000</text>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button onclick="buyFactoryUpgrade(4)" class="upgradeButton" id="factoryUpgrade4">
+              <text>Square base Factory Energy Cap, currently: <span id="factoryUpg4Eff">1.00</span>x</text><br>
+              <text id="factoryUpg4Level">Not Purchased</text><br>
+              <text id="factoryUpg4Cost">Cost: 6.400</text>
+            </button>
+          </td>
+          <td>
+            <button onclick="buyFactoryUpgrade(5)" class="upgradeButton" id="factoryUpgrade5">
+              <text>Multiply Factory Energy cap based on your coins, currently: <span id="factoryUpg5Eff">1.00</span>x</text><br>
+              <text id="factoryUpg5Level">Not Purchased</text><br>
+              <text id="factoryUpg5Cost">Cost: 45.000</text>
+            </button>
+          </td>
+          <td>
+              <button onclick="buyFactoryUpgrade(6)" class="upgradeButton" id="factoryUpgrade6">
+              <text>You gain Factory Energy faster based on your best Depth, currently: <span id="factoryUpg6Eff">1.00</span>x</text><br>
+              <text id="factoryUpg6Level">Not Purchased</text><br>
+              <text id="factoryUpg6Cost">Cost: 9000.000</text>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button onclick="buyFactoryUpgrade(7)" class="upgradeButton" id="factoryUpgrade7">
+              <text>You gain Coin faster based on Factory Energy, currently: <span id="factoryUpg7Eff">1.00</span>x</text><br>
+              <text id="factoryUpg7Level">Not Purchased</text><br>
+              <text id="factoryUpg7Cost">Cost: 640.000</text>
+            </button>
+          </td>
+          <td>
+            <button onclick="buyFactoryUpgrade(8)" class="upgradeButton" id="factoryUpgrade8">
+              <text>Bought boost multiplier is increase by <span id="factoryUpg8Eff">1.00</span></text><br>
+              <text id="factoryUpg8Level">Not Purchased</text><br>
+              <text id="factoryUpg8Cost">Cost: 1800.000</text>
+            </button>
+          </td>
+          <td>
+            <button onclick="buyFactoryUpgrade(9)" class="upgradeButton" id="factoryUpgrade9">
+              <text>Unlock Prestige (You keep this upgrade when you prestige)</text><br>
+              <text id="factoryUpg9Level">Not Purchased</text><br>
+              <text id="factoryUpg9Cost">Cost: 32000.000</text>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
   <div id="Tab2">
-    <p style="font-family: roboto" id="nextMinerReq">Get 50 Cursors to Unlock new Miner</p>
-    <table>
-      <!-- Miner 0 -->
-      <tr>
-        <td>
-          <button onclick="buyMiner(0)" class="boughtButton" id="minerBought0">
-            <p id="miner0Amount">Miner 0: 0 </p>
-            <p id="miner0Power">Power: 1.00x</p>
-            <p id="miner0Cost">Cost: 1000.00</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxMiner(0)" class="maxButton" id="maxMinerBought0">
-            Max<br>Miner 0
-          </button>
-        </td>
-      </tr>
-      <!-- Miner 1 -->
-      <tr>
-        <td>
-          <button onclick="buyMiner(1)" class="boughtButton" id="minerBought1">
-            <p id="miner1Amount">Miner 1: 0 </p>
-            <p id="miner1Power">Power: 1.00x</p>
-            <p id="miner1Cost">Cost: 100000.00</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxMiner(1)" class="maxButton" id="maxMinerBought1">
-            Max<br>Miner 1
-          </button>
-        </td>
-      </tr>
-      <!-- Miner 2 -->
-      <tr>
-        <td>
-          <button onclick="buyMiner(2)" class="boughtButton" id="minerBought2">
-            <p id="miner2Amount">Miner 2: 0 </p>
-            <p id="miner2Power">Power: 1.00x</p>
-            <p id="miner2Cost">Cost: 1.00e8</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxMiner(2)" class="maxButton" id="maxMinerBought2">
-            Max<br>Miner 2
-          </button>
-        </td>
-      </tr>
-      <!-- Miner 3 -->
-      <tr>
-        <td>
-          <button onclick="buyMiner(3)" class="boughtButton" id="minerBought3">
-            <p id="miner3Amount">Miner 3: 0 </p>
-            <p id="miner3Power">Power: 1.00x</p>
-            <p id="miner3Cost">Cost: 1.00e13</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxMiner(3)" class="maxButton" id="maxMinerBought3">
-            Max<br>Miner 3
-          </button>
-        </td>
-      </tr>
-      <!-- Miner 4 -->
-      <tr>
-        <td>
-          <button onclick="buyMiner(4)" class="boughtButton" id="minerBought4">
-            <p id="miner4Amount">Miner 4: 0 </p>
-            <p id="miner4Power">Power: 1.00x</p>
-            <p id="miner4Cost">Cost: 1.00e21</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxMiner(4)" class="maxButton" id="maxMinerBought4">
-            Max<br>Miner 4
-          </button>
-        </td>
-      </tr>
-      <!-- Miner 5 -->
-      <tr>
-        <td>
-          <button onclick="buyMiner(5)" class="boughtButton" id="minerBought5">
-            <p id="miner5Amount">Miner 5: 0 </p>
-            <p id="miner5Power">Power: 1.00x</p>
-            <p id="miner5Cost">Cost: 1.00e34</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxMiner(5)" class="maxButton" id="maxMinerBought5">
-            Max<br>Miner 5
-          </button>
-        </td>
-      </tr>
-      <!-- Miner 6 -->
-      <tr>
-        <td>
-          <button onclick="buyMiner(6)" class="boughtButton" id="minerBought6">
-            <p id="miner6Amount">Miner 6: 0 </p>
-            <p id="miner6Power">Power: 1.00x</p>
-            <p id="miner6Cost">Cost: 1.00e55</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxMiner(6)" class="maxButton" id="maxMinerBought6">
-            Max<br>Miner 6
-          </button>
-        </td>
-      </tr>
-      <!-- Miner 7 -->
-      <tr>
-        <td>
-          <button onclick="buyMiner(7)" class="boughtButton" id="minerBought7">
-            <p id="miner7Amount">Miner 7: 0 </p>
-            <p id="miner7Power">Power: 1.00x</p>
-            <p id="miner7Cost">Cost: 1.00e89</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxMiner(7)" class="maxButton" id="maxMinerBought7">
-            Max<br>Miner 7
-          </button>
-        </td>
-      </tr>
-      <!-- Miner 8 -->
-      <tr>
-        <td>
-          <button onclick="buyMiner(8)" class="boughtButton" id="minerBought8">
-            <p id="miner8Amount">Miner 8: 0 </p>
-            <p id="miner8Power">Power: 1.00x</p>
-            <p id="miner8Cost">Cost: 1.00e144</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxMiner(8)" class="maxButton" id="maxMinerBought8">
-            Max<br>Miner 8
-          </button>
-        </td>
-      </tr>
-      <!-- Miner 9 -->
-      <tr>
-        <td>
-          <button onclick="buyMiner(9)" class="boughtButton" id="minerBought9">
-            <p id="miner9Amount">Miner 9: 0 </p>
-            <p id="miner9Power">Power: 1.00x</p>
-            <p id="miner9Cost">Cost: 1.00e233</p>
-          </button>
-        </td>
-        <td>
-          <button onclick="maxMiner(9)" class="maxButton" id="maxMinerBought9">
-            Max<br>Miner 9
-          </button>
-        </td>
-      </tr>
-    </table>
-  </div>
-  <div id="Tab3">
-    <p style="font-family: roboto" id="factoryEnergy">You have 0.000 Factory Energy, Multiply all Miner damage by 1.000</p>
-    <p style="font-family: roboto" id="factoryEnergyPerSecond">You are getting 0.000 Factory Energy per second (based on Miners),</p>
-    <p style="font-family: roboto" id="factoryEnergyCap">but will capped at 0.000 Factory Energy (based on Cursors)</p>
-    <table>
-      <tr>
-        <td>
-          <button onclick="buyFactoryUpgrade(1)" class="upgradeButton" id="factoryUpgrade1">
-            <text>You gain Factory Energy 10% faster, currently: <span id="factoryUpg1Eff">1.00</span>x</text><br>
-            <text id="factoryUpg1Level">Level 0</text><br>
-            <text id="factoryUpg1Cost">Cost: 1.000</text>
-          </button>
-        </td>
-        <td>
-          <button onclick="buyFactoryUpgrade(2)" class="upgradeButton" id="factoryUpgrade2">
-            <text>Factory Energy boost is stronger, currently: ^<span id="factoryUpg2Eff">1.00</span></text><br>
-            <text id="factoryUpg2Level">Level 0</text><br>
-            <text id="factoryUpg2Cost">Cost: 6.000</text>
-          </button>
-        </td>
-        <td>
-          <button onclick="buyFactoryUpgrade(3)" class="upgradeButton" id="factoryUpgrade3">
-            <text>Multiply Factory Energy cap based on your Depth, currently: <span id="factoryUpg3Eff">1.00</span>x</text><br>
-            <text id="factoryUpg3Level">Level 0</text><br>
-            <text id="factoryUpg3Cost">Cost: 2000.000</text>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button onclick="buyFactoryUpgrade(4)" class="upgradeButton" id="factoryUpgrade4">
-            <text>Square base Factory Energy Cap, currently: <span id="factoryUpg4Eff">1.00</span>x</text><br>
-            <text id="factoryUpg4Level">Not Purchased</text><br>
-            <text id="factoryUpg4Cost">Cost: 6.400</text>
-          </button>
-        </td>
-        <td>
-          <button onclick="buyFactoryUpgrade(5)" class="upgradeButton" id="factoryUpgrade5">
-            <text>Multiply Factory Energy cap based on your coins, currently: <span id="factoryUpg5Eff">1.00</span>x</text><br>
-            <text id="factoryUpg5Level">Not Purchased</text><br>
-            <text id="factoryUpg5Cost">Cost: 45.000</text>
-          </button>
-        </td>
-        <td>
-          <button onclick="buyFactoryUpgrade(6)" class="upgradeButton" id="factoryUpgrade6">
-            <text>You gain Factory Energy faster based on your best Depth, currently: <span id="factoryUpg6Eff">1.00</span>x</text><br>
-            <text id="factoryUpg6Level">Not Purchased</text><br>
-            <text id="factoryUpg6Cost">Cost: 9000.000</text>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button onclick="buyFactoryUpgrade(7)" class="upgradeButton" id="factoryUpgrade7">
-            <text>You gain Coin faster based on Factory Energy, currently: <span id="factoryUpg7Eff">1.00</span>x</text><br>
-            <text id="factoryUpg7Level">Not Purchased</text><br>
-            <text id="factoryUpg7Cost">Cost: 640.000</text>
-          </button>
-        </td>
-        <td>
-          <button onclick="buyFactoryUpgrade(8)" class="upgradeButton" id="factoryUpgrade8">
-            <text>Bought boost multiplier is increase by <span id="factoryUpg8Eff">1.00</span></text><br>
-            <text id="factoryUpg8Level">Not Purchased</text><br>
-            <text id="factoryUpg8Cost">Cost: 1800.000</text>
-          </button>
-        </td>
-        <td>
-          <button onclick="buyFactoryUpgrade(9)" class="upgradeButton" id="factoryUpgrade9">
-            <text>Unlock Prestige (You keep this upgrade when you prestige)</text><br>
-            <text id="factoryUpg9Level">Not Purchased</text><br>
-            <text id="factoryUpg9Cost">Cost: 32000.000</text>
-          </button>
-        </td>
-      </tr>
-    </table>
-  </div>
-  <div id="Tab4">
     <p style="font-family: roboto"><span id="milestone1achieve"></span>50 Cursor: Unlock Miner 0</p>
     <p style="font-family: roboto"><span id="milestone2achieve"></span>100 Cursor: Add <span id="milestone7effect">1.00</span>% of Miner damage to Cursor Damage, Currently: +<span id="milestone2effect">0.00</span></p>
     <p style="font-family: roboto"><span id="milestone3achieve"></span>150 Cursor: Unlock Miner 1</p>
@@ -442,7 +447,7 @@
     <p style="font-family: roboto"><span id="milestone8achieve"></span>500 Cursor: Unlock Miner 3</p>
     <p style="font-family: roboto"><span id="milestone9achieve"></span>600 Cursor: 200 Cursor milestone effective is stronger based on your Depth and the boost is squared
   </div>
-  <div id="Tab5">
+  <div id="Tab3">
     <p style="font-family: roboto">Saving</p>
     <button onclick="save()" class="saveButton" style="border:2px solid #00FF00">Save your game</button>
     <button onclick="exportSave()" class="saveButton" style="border:2px solid #00FF00">Export your game save</button>
@@ -454,10 +459,13 @@
     <p style="font-family: roboto">Github: <a href="https://github.com/1e1000000/idle-digger/issues">Issues (for reporting bugs)</a> | <a href="https://github.com/1e1000000/idle-digger/pulls">Pull Request (if you known how to fix bugs, I recommend use this)</a></p>
     <p style="font-family: roboto"><b>You are playing Idle Digger α 0.2, Last Update: 7 September 2020</b> | <a href="https://1e1000000.github.io/idle-digger/changelog.html">Changelog</a></p>
   </div>
-  <div id="Tab6">
+  <div id="Tab4">
     <p style="font-family: roboto" id="statistic1">You have played for 0.000s</p>
     <p style="font-family: roboto" id="statistic2">You have gained 0.00 coins</p>
     <p style="font-family: roboto" id="statistic3">You have bought 0 Miners</p>
     <p style="font-family: roboto" id="statistic4">You have dealed 0.00 damage</p>
     <p style="font-family: roboto" id="statistic5">Your best depth was 0 meter</p>
+  </div>
+  <div id="Tab5">
+    WIP
   </div>
