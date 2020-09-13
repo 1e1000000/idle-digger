@@ -128,6 +128,7 @@ game = {
   lastTick: Date.now(),
   totalPlayed: 0, // millisecond
   mainTab: 1,
+  subTab1: 1,
   // option
   maxBulk: 1000,
   notation: 0,
