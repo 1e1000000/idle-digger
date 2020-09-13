@@ -119,7 +119,7 @@ function updateText() {
   document.getElementById("factoryEnergyPerSecond").innerHTML = "You are getting " + formate(getFactoryEnergyPerSecond(), 3) + " Factory Energy per second (based on Miners),"
   document.getElementById("factoryEnergyCap").innerHTML = "but will capped at " + formate(getFactoryEnergyCap(), 3) + " Factory Energy (based on Cursors)"
   for (let i=1; i<10; i++) {
-    document.getElementById("factoryUpg" + i + "Eff").innerHTML = formate(getFactoryUpgEff(i), 2) + ((i == 2 && getFactoryUpgEff(i).gt(2)) ? " (softcapped)" : "")
+    if (i < 8.5) document.getElementById("factoryUpg" + i + "Eff").innerHTML = formate(getFactoryUpgEff(i), 2) + ((i == 2 && getFactoryUpgEff(i).gt(2)) ? " (softcapped)" : "")
     if (i > 3.5) {
       document.getElementById("factoryUpg" + i + "Level").innerHTML = (game.factoryUpgrade[i].gte(0.5) ? "Purchased" : "Not Purchased")
       document.getElementById("factoryUpg" + i + "Cost").innerHTML = "Cost: " + formate(factoryUpgradeInitCost[i], 3)
