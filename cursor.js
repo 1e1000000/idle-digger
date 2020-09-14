@@ -1,8 +1,19 @@
+function getCursorInitialCost(generation) {
+  if (generation == 0) return new Decimal(10);
+  return new Decimal(10000).pow(fib(new Decimal(generation).add(5)))
+}
+
+function getCursorCostScaling(generation) {
+  if (generation == 0) return new Decimal(1.05)
+  return new Decimal(1).add(new Decimal(generation).div(10))
+}
+
 function getCursorCost(generation,amount) { // amount: currently cursor
-  if (amount.lt(10)) return new Decimal(10).add(amount)
-  if (amount.lt(1000)) return new Decimal(20).mul(new Decimal(1.05).pow(amount.sub(10)))
-  if (amount.lt(10000)) return new Decimal(20).mul(new Decimal(1.05).pow(amount.sub(10).pow(2).div(990)))
-  return new Decimal(20).mul(new Decimal(1.05).pow(amount.sub(10).pow(amount.log10().sqrt()).div(990)))
+  if (amount.lt(1000)) return getCursorInitialCost(generation).mul(getCursorCostScaling(generation).pow(amount))
+  if (amount.lt(10000)) return getCursorInitialCost(generation).mul(getCursorCostScaling(generation).pow(amount.pow(2).div(1000)))
+  if (amount.lt(100000)) return getCursorInitialCost(generation).mul(getCursorCostScaling(generation).pow(amount.pow(amount.log10().sqrt()).div(1000)))
+  let ret = getCursorInitialCost(generation).mul(getCursorCostScaling(generation).pow(amount.pow(amount.log10().sqrt()).div(1000))).log10()
+  return new Decimal(10).pow(ret.pow(amount.div(100000)))
 }
 
 function getMaxCursorBought(generation) {
@@ -45,8 +56,9 @@ function maxCursor(generation) {
 }
 
 function getCursorDamage() {
-  let ret = game.cursor.amount[0].mul(getCursorPower(0)).pow(getDamageExp()).add(1).div(100)
-  if (game.cursor.amount[0].gte(99.999)) ret = ret.add(getTotalMinerDamage().div(100))
+  let ret = game.cursor.amount[0].mul(getCursorPower(0)).add(1).div(100)
+  ret = ret.div(getDamageDivider())
+  ret = ret.add(getMilestone2Eff())
   return ret
 }
 
@@ -58,5 +70,6 @@ function damage() {
 }
 
 function getCursorPower(generation) {
-  return new Decimal(2).pow(game.cursor.bought[generation].div(50).floor())
+  if (generation == 0) return getBoughtBoostMulti().pow(game.cursor.bought[generation].add(0.001).div(50).floor())
+  return new Decimal(1).add(getBoughtBoostMulti().div(10)).pow(game.cursor.bought[generation].add(0.001).div(50).floor())
 }

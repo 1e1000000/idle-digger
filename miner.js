@@ -5,7 +5,9 @@ function getMinerInitialCost(generation) {
 function getMinerCost(generation,amount) { // generation: Miner #, amount: currently Miner # bought
   if (amount.lt(1000)) return getMinerInitialCost(generation).mul(new Decimal(1.09).pow(amount))
   if (amount.lt(10000)) return getMinerInitialCost(generation).mul(new Decimal(1.09).pow(amount.pow(2).div(1000)))
-  return getMinerInitialCost(generation).mul(new Decimal(1.09).pow(amount.pow(amount.log10().sqrt()).div(1000)))
+  if (amount.lt(100000)) return getMinerInitialCost(generation).mul(new Decimal(1.09).pow(amount.pow(amount.log10().sqrt()).div(1000)))
+  let ret = getMinerInitialCost(generation).mul(new Decimal(1.09).pow(amount.pow(amount.log10().sqrt()).div(1000))).log10()
+  return new Decimal(10).pow(ret.pow(amount.div(100000)))
 }
 
 function buyMiner(generation) {
@@ -41,11 +43,13 @@ function getTotalMinerDamage() {
   for (let i=0; i<4; i++) {
     ret = ret.add(game.miner.bought[i].mul(minerBaseEff[i]).mul(getMinerPower(i)))
   };
-  if (game.cursor.amount[0].gte(199.999)) ret = ret.mul(getTotalMiners().div(100).add(1));
-  return ret.pow(getDamageExp())
+  ret = ret.mul(getMilestone4Eff());
+  if (isFactoryUnlocked()) ret = ret.mul(getFactoryEnergyEff());
+  ret = ret.div(getDamageDivider())
+  return ret
 }
 
 function getMinerPower(generation) {
-  let ret = new Decimal(2).pow(game.miner.bought[generation].add(0.001).div(25).floor());
+  let ret = getBoughtBoostMulti().pow(game.miner.bought[generation].add(0.001).div(25).floor());
   return ret
 }
