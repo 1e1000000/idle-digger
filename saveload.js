@@ -1,5 +1,5 @@
 "use strict"
-const saveLoc = "idle-digger-beta"
+const saveLoc = "idle-digger"
 
 function objectToDecimal(object) {
   for (let i in object) {
