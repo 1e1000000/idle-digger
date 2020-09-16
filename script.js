@@ -53,18 +53,18 @@ var autoSave = window.setInterval(function() {
 function loop(unadjusted, off = 0) { //the begin of gameloop
   let ms = unadjusted
   game.totalPlayed += ms
-  game.dealed = (game.dealed).add(getTotalMinerDamage().div(1000).times(ms));
+  game.dealed = (game.dealed).add(getTotalMinerDamage().times(ms).div(1000));
   if (game.dealed.lt(0)) game.dealed = new Decimal(0)
   game.depth = getDepth(game.dealed);
   if (game.bestDepth.lte(game.depth)) game.bestDepth = game.depth;
-  game.coins = (game.coins).add(getCoinPerSecond().div(1000).times(ms));
-  game.totalCoins = (game.totalCoins).add(getCoinPerSecond().div(1000).times(ms));
+  game.coins = (game.coins).add(getCoinPerSecond().times(ms).div(1000));
+  game.totalCoins = (game.totalCoins).add(getCoinPerSecond().times(ms).div(1000));
   if (game.coins.lt(0)) game.coins = new Decimal(0)
   if (game.clickCoolDown > 0) game.clickCoolDown -= ms;
-  game.factoryEnergy = (game.factoryEnergy).add(getFactoryEnergyPerSecond().div(1000).times(ms));
+  game.factoryEnergy = (game.factoryEnergy).add(getFactoryEnergyPerSecond().times(ms).div(1000));
   if (game.factoryEnergy.gt(getFactoryEnergyCap())) game.factoryEnergy = getFactoryEnergyCap();
   for (let i=0; i<10; i++) { // There are non x^11 derivatite
-    game.cursor.amount[i] = game.cursor.amount[i].add(game.cursor.amount[i+1].div(1000).times(ms))
+    game.cursor.amount[i] = game.cursor.amount[i].add(game.cursor.amount[i+1].times(ms).div(1000))
   }
   updateDisplay()
   updateText()
