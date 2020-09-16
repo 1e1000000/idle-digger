@@ -37,14 +37,20 @@ function maxMiner(generation) {
   buyMultipleMiner(generation, new Decimal(game.maxBulk))
 }
 
+function getMinerGlobalDamageMulti() {
+  let ret = new Decimal(1)
+  ret = ret.mul(getMilestone4Eff());
+  if (isFactoryUnlocked()) ret = ret.mul(getFactoryEnergyEff());
+  ret = ret.div(getDamageDivider())
+  return ret
+}
+
 function getTotalMinerDamage() {
   let ret = new Decimal(0)
   for (let i=0; i<4; i++) {
     ret = ret.add(game.miner.bought[i].mul(minerBaseEff[i]).mul(getMinerPower(i)))
   };
-  ret = ret.mul(getMilestone4Eff());
-  if (isFactoryUnlocked()) ret = ret.mul(getFactoryEnergyEff());
-  ret = ret.div(getDamageDivider())
+  ret = ret.mul(getMinerGlobalDamageMulti());
   return ret
 }
 
