@@ -39,7 +39,6 @@ function maxMiner(generation) {
 
 function getTotalMinerDamage() {
   let ret = new Decimal(0)
-  let rett = new Decimal(0)
   for (let i=0; i<4; i++) {
     ret = ret.add(game.miner.bought[i].mul(minerBaseEff[i]).mul(getMinerPower(i)))
   };
