@@ -58,7 +58,7 @@ function load() {
 }
 
 function resetConf() {
-  let x = confirm("Are you sure you want to delete all of your progress? You can't undo this process!)
+  let x = confirm("Are you sure you want to delete all of your progress? You can't undo this process!")
   if (x) wipeSave()
 }
 
