@@ -31,7 +31,7 @@ const cursorName = ["", "Velocity ", "Acceleration ", "Jerk ", "Snap ", "Crackle
 const cursorReq = [new Decimal(-1),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity)] // first one is x^0 Cursor, require your depth, non-x^0 also require a reset
 const minerBaseEff = [new Decimal(0.1),new Decimal(2),new Decimal(56),new Decimal(11000),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0),new Decimal(0)]; // when you buy 1 Miner, the effect
 const minerReq = [new Decimal(49.999),new Decimal(149.999),new Decimal(249.999),new Decimal(499.999),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity)] // first one is Miner 0, require cursor amount
-const milestoneReq = [null,new Decimal(49.999),new Decimal(99.999),new Decimal(149.999),new Decimal(199.999),new Decimal(249.999),new Decimal(299.999),new Decimal(399.999),new Decimal(499.999),new Decimal(599.999)] // require cursor
+const milestoneReq = [null,new Decimal(49.999),new Decimal(99.999),new Decimal(149.999),new Decimal(199.999),new Decimal(249.999),new Decimal(299.999),new Decimal(399.999),new Decimal(499.999),new Decimal(599.999),new Decimal(699.999)] // require cursor
 const factoryUpgradeInitCost = [null,new Decimal(1),new Decimal(6),new Decimal(2000),new Decimal(6.4),new Decimal(45),new Decimal(9000),new Decimal(640),new Decimal(1800),new Decimal(60000)]
 const factoryUpgradeCostScaling = [null,new Decimal(2),new Decimal(4),new Decimal(8),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity),new Decimal(Infinity)] // Infinity mean you can only buy this upgrade once
 
@@ -132,7 +132,7 @@ function updateText() {
     }
   }
   document.getElementById("notation").innerHTML = "Notation: " + (game.notation == 0 ? "Scientific " : "Standard I" + (game.notation >= 2 ? (game.notation >= 3 ? "II " : "I ") : " ")) + "(Scientific Notation start at 1e" + (3 * 10 ** game.notation + 3) + ")"
-  for (let i=1; i<10; i++) {
+  for (let i=1; i<11; i++) {
     document.getElementById("milestone" + i + "achieve").innerHTML = (game.cursor.amount[0].gte(milestoneReq[i]) ? "(Achieved) " : "(" + formate(game.cursor.amount[0].div(milestoneReq[i]).mul(100), 2) + "% done) " )
   }
   document.getElementById("milestone2effect").innerHTML = formate(getMilestone2Eff(), 2)
