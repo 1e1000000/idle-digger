@@ -62,6 +62,7 @@ function updateMinerTab() { // update if you are in miner tab (main: 1, sub: 2)
 }
 
 function updateFactoryTab() { // update if you are in factory tab (main: 1, sub: 3)
+  document.getElementById("maxBulk").innerHTML = "Max Bulk buy: " + game.maxBulk
   document.getElementById("factoryUpgrade2").style.display = (game.factoryUpgrade[1].gte(2.999) ? "inline-block" : "none")
   document.getElementById("factoryUpgrade4").style.display = (game.factoryUpgrade[2].gte(0.999) ? "inline-block" : "none")
   document.getElementById("factoryUpgrade5").style.display = (game.factoryUpgrade[2].gte(0.999) ? "inline-block" : "none")
@@ -105,5 +106,5 @@ function updateStatisticTab() { // update if you are in statictic tab (main: 4)
   document.getElementById("statistic2").innerHTML = "You have gained " + formate(game.totalCoins,2) + " coins"
   document.getElementById("statistic3").innerHTML = "You have bought " + formate(getTotalMiners()) + " miners"
   document.getElementById("statistic4").innerHTML = "You have dealed " + formate(game.dealed,2) + " damage"
-  document.getElementById("statistic5").innerHTML = "Your best depth was " + formate(game.bestDepth) + " meter"
+  document.getElementById("statistic5").innerHTML = "Your best depth was " + formate(game.bestDepth) + " meters"
 }
