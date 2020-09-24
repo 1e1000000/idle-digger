@@ -1,6 +1,6 @@
 function getFactoryUpgradeCost(id,amount) {
-  if (amount.lt(100)) return factoryUpgradeInitCost[id].mul(factoryUpgradeCostScaling[id].pow(amount))
-  else return factoryUpgradeInitCost[id].mul(factoryUpgradeCostScaling[id].pow(amount.pow(2).div(100)))
+  if (amount.lt(20)) return factoryUpgradeInitCost[id].mul(factoryUpgradeCostScaling[id].pow(amount))
+  else return factoryUpgradeInitCost[id].mul(factoryUpgradeCostScaling[id].pow(amount.pow(2).div(20)))
 }
 
 function buyFactoryUpgrade(id) {
