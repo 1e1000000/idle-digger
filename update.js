@@ -78,10 +78,10 @@ function updateFactoryTab() { // update if you are in factory tab (main: 1, sub:
   for (let i=1; i<10; i++) {
     if (i < 8.5) document.getElementById("factoryUpg" + i + "Eff").innerHTML = formate(getFactoryUpgEff(i), 2) + ((i == 2 && getFactoryUpgEff(i).gt(2)) ? " (softcapped)" : "")
     if (i > 3.5) {
-      document.getElementById("factoryUpg" + i + "Level").innerHTML = (game.factoryUpgrade[i].gte(0.5) ? "Purchased" : "Not Purchased")
+      document.getElementById("factoryUpg" + i + "Level").innerHTML = (game.factoryUpgrade[i].gte(0.999) ? "Purchased" : "Not Purchased")
       document.getElementById("factoryUpg" + i + "Cost").innerHTML = "Cost: " + formate(factoryUpgradeInitCost[i], 3)
     } else {
-    document.getElementById("factoryUpg" + i + "Level").innerHTML = (game.factoryUpgrade[i].gte(100) ? "Scaled " : "") + "Level " + formate(game.factoryUpgrade[i])
+    document.getElementById("factoryUpg" + i + "Level").innerHTML = (game.factoryUpgrade[i].gte(19.999) ? "Scaled " : "") + "Level " + formate(game.factoryUpgrade[i])
     document.getElementById("factoryUpg" + i + "Cost").innerHTML = "Cost: " + formate(getFactoryUpgradeCost(i,game.factoryUpgrade[i]), 3)
     }
   }
