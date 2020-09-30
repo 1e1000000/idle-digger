@@ -105,5 +105,5 @@ function getMilestone4Eff() {
 
 function getDamageDivider() {
   if (game.depth.lt(49999.999)) return new Decimal(1)
-  else return new Decimal(10).pow(game.depth.sub(50000).div(50000).add(9))
+  else return new Decimal(10).pow(game.depth.sub(50000).div(1000).sqrt().add(12))
 }
